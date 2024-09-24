@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Comprobante extends Model
 {
     use HasFactory;
+
+    public function compras(){
+        return $this->hasMany(Compra::class);
+    }
+
+    public function ventas(){
+        return $this->hasMany(Venta::class);
+    }
+
+    public function caracteristica(){
+        return $this->belongsTo(Caracteristica::class);
+    }
 }
