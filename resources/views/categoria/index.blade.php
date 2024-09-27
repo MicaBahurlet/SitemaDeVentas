@@ -16,7 +16,7 @@
         toast: true,
         position: "top-end",
         showConfirmButton: false,
-        timer: 3000,
+        timer: 2000,
         timerProgressBar: true,
         didOpen: (toast) => {
             toast.onmouseenter = Swal.stopTimer;
@@ -52,32 +52,37 @@
             <table id="datatablesSimple" class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
+                        <th>Nombre de la categoria</th>
+                        <th>Descripción</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
 
                 <tbody>
+                    @foreach ($categorias as $categoria)
                     <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>$320,800</td>
+                        <td>
+                            {{ $categoria->caracteristica->nombre }}
+                        </td>
+                        <td>
+                            {{ $categoria->caracteristica->descripcion }}
+                        </td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+
+                                <form action="{{ route('categorias.edit', $categoria->id) }}" method="GET">
+                                    <!-- @csrf -->
+                                    <button type="submit" class="btn btn-warning">Editar</button>
+
+                                </form>
+
+
+                                
+                                <button type="button" class="btn btn-danger">Eliminar</button>
+                            </div>
+                        <td>
                     </tr>
-                    <tr>
-                        <td>Garrett Winters</td>
-                        <td>Accountant</td>
-                        <td>Tokyo</td>
-                        <td>63</td>
-                        <td>2011/07/25</td>
-                        <td>$170,750</td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
