@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\categoriaController;
+use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\marcaController;
 
 Route::get('/', function () {
     return view('template');
@@ -8,11 +11,14 @@ Route::get('/', function () {
 
 Route::view ('/panel', 'panel.index') ->name ('panel');
 
-// Route::view ('/categorias', 'categoria.index');
 
-// Route::resource('categorias', categoriaController::class);
 
-Route::resource('categorias', App\Http\Controllers\categoriaController::class);
+Route::resources([
+    'categorias' => categoriaController::class,
+    'marcas' => marcaController::class,
+    'productos' => ProductoController::class
+
+]);
 
 Route::get('/login', function () {
     return view('auth.login');
