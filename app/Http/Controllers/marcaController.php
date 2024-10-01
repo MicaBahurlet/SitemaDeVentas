@@ -58,7 +58,7 @@ class marcaController extends Controller
         } catch (Exception $e) {
             DB::rollBack();
         }
-        dd('Hasta aca lllego con registro en base');
+        // dd('Hasta aca lllego con registro en base');
 
         return redirect()->route('marcas.index')->with('success', 'Marca registrada');
     }

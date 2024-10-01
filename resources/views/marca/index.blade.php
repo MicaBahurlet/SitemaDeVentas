@@ -2,9 +2,7 @@
 
 @section('title','marcas')
 
-
 @push('css')
-
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
 @endpush
@@ -54,7 +52,7 @@
             <table id="datatablesSimple" class="table table-striped ">
                 <thead>
                     <tr>
-                        <th>Nombre</th>
+                        <th>Nombre de la marca</th>
                         <th>Descripción</th>
                         <th>Estado</th>
                         <th>Acciones</th>
@@ -63,12 +61,8 @@
                 <tbody>
                     @foreach ($marcas as $item)
                     <tr>
-                        <td>
-                            {{$item->caracteristica->nombre}}
-                        </td>
-                        <td>
-                            {{$item->caracteristica->descripcion}}
-                        </td>
+                        <td>{{ $item->caracteristica->nombre }}</td>
+                        <td>{{ $item->caracteristica->descripcion }}</td>
                         <td>
                             @if ($item->caracteristica->estado == 1)
                             <span class="fw-bolder rounded bg-success text-white px-2 py-2">Activa</span>
@@ -76,12 +70,9 @@
                             <span class="fw-bolder rounded bg-danger text-white px-2 py-2">Eliminada</span>
                             @endif
                         </td>
-
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-
                                 <form action="{{ route('categorias.edit', $item->id) }}" method="GET">
-                                    <!-- @csrf -->
                                     <button type="submit" class="btn btn-warning">Editar</button>
                                 </form>
                                 @if( $item->caracteristica->estado == 1)
@@ -89,43 +80,37 @@
                                 @else
                                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#confirmModal-{{ $item->id }}">Restaurar</button>
                                 @endif
-
-
-
-
                             </div>
-        </div>
-        </td>
-        </tr>
+                        </td>
+                    </tr>
 
-        <!-- Modal -->
-        <div class="modal fade" id="confirmModal-{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Mensaje de confirmación</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="confirmModal-{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Mensaje de confirmación</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    {{ $item->caracteristica->estado == 1 ? '¿Seguro que quieres eliminar la marca?' : '¿Seguro que quieres restaurar la marca?' }}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                    <form action="{{ route('marcas.destroy',['marca'=>$item->id]) }}" method="post">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger">Confirmar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        {{ $item->caracteristica->estado == 1 ? '¿Seguro que quieres eliminar la marca?' : '¿Seguro que quieres restaurar la marca?' }}
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <form action="{{ route('marcas.destroy',['marca'=>$item->id]) }}" method="post">
-                            @method('DELETE')
-                            @csrf
-                            <button type="submit" class="btn btn-danger">Confirmar</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
-        @endforeach
-        </tbody>
-        </table>
     </div>
-</div>
-
 </div>
 
 @endsection

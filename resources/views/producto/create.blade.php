@@ -5,7 +5,7 @@
 @push ('css')
 
 <style>
-    #descripcion{
+    #descripcion {
         resize: none;
     }
 </style>
@@ -29,13 +29,13 @@
         <form action="{{ route('productos.store') }}" method="POST">
             @csrf
             <div class="row g-3">
-                  <!-- codigo -->
+                <!-- codigo -->
                 <div class="col-md-6 mb-2">
                     <label for="codigo" class="form-label">Código:</label>
                     <input type="text" class="form-control" id="codigo" name="codigo" value="{{ old('codigo') }}">
                     @error('codigo')
                     <small class="text-danger">{{ '*'.$message }}</small>
-                    @enderror           
+                    @enderror
                 </div>
                 <!-- nombre -->
                 <div class="col-md-6 mb-2">
@@ -49,7 +49,7 @@
                 <!-- descripcion -->
                 <div class="col--md-12">
                     <label for="nombre" class="form-label">Descripcion:</label>
-                    <textarea name="descripcion" id="descripcion" cols="30" rows="6" class="form-control" > {{ old('descripcion') }}</textarea>
+                    <textarea name="descripcion" id="descripcion" cols="30" rows="6" class="form-control"> {{ old('descripcion') }}</textarea>
                     @error('descripcion')
                     <small class="text-danger">{{ '*'.$message }}</small>
                     @enderror
@@ -76,22 +76,24 @@
                 <!-- marca select -->
                 <div class="col-md-6 mb-2">
                     <label for="marca_id" class="form-label">Marca:</label>
-                    <select data-size="5" title="Seleccione una marca..." data-live-search="true" name="marca_id" id="marca_id" class="form-control selectpicker"  >
-                        @foreach ($marcas as $items)
-                            <option value="{{ $item->id }}">{{ $item->caracteristica->nombre }}</option>
+                    <select data-size="5" title="Seleccione una marca..." data-live-search="true" name="marca_id" id="marca_id" class="form-control selectpicker">
+                        @foreach ($marcas as $item)
+                        <option value="{{ $item->id }}">{{ $item->caracteristica->nombre }}</option>
                         @endforeach
+
                     </select>
                     @error('marca_id')
                     <small class="text-danger">{{ '*'.$message }}</small>
                     @enderror
                 </div>
 
+
                 <!-- categoria select -->
                 <div class="col-md-6 mb-2">
                     <label for="categorias" class="form-label">Categorías:</label>
-                    <select data-size="5" title="Seleccione una categoria..." data-live-search="true" name="categorias[]" id="categorias" class="form-control selectpicker" multiple >
+                    <select data-size="5" title="Seleccione una categoria..." data-live-search="true" name="categorias[]" id="categorias" class="form-control selectpicker" multiple>
                         @foreach ($categorias as $item)
-                            <option value="{{ $item->id }}">{{ $item->caracteristica->nombre }}</option>
+                        <option value="{{ $item->id }}">{{ $item->caracteristica->nombre }}</option>
                         @endforeach
                     </select>
                     @error('categorias')
@@ -101,10 +103,10 @@
 
                 <!-- botones -->
                 <div class="col-12">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
 
-                
+
             </div>
         </form>
     </div>
