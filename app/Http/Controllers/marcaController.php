@@ -23,7 +23,7 @@ class marcaController extends Controller
      */
     public function index()
     {
-        $marcas = Marca::with('caracteristica')->latest()->get();
+        $marcas = Marca::latest()->get();
         return view('marca.index',compact('marcas'));
     }
 
@@ -40,16 +40,25 @@ class marcaController extends Controller
      */
     public function store(StoreCaracteristicaRequest $request)
     {
+        // dd($request->all());
         try {
             DB::beginTransaction();
             $caracteristica = Caracteristica::create($request->validated());
-            $caracteristica->marca()->create([
-                'caracteristica_id' => $caracteristica->id
+            // dd($caracteristica);
+            // $caracteristica->marca()->create([
+            //     'caracteristica_id' => $caracteristica->id
+            // ]);
+            $marca = $caracteristica->marca()->create([
+                'caracteristica_id' => $caracteristica->id,
+                'nombre' => $request->input('nombre'),
+                'descripcion' => $request->input('descripcion')
             ]);
+
             DB::commit();
         } catch (Exception $e) {
             DB::rollBack();
         }
+        dd('Hasta aca lllego con registro en base');
 
         return redirect()->route('marcas.index')->with('success', 'Marca registrada');
     }
