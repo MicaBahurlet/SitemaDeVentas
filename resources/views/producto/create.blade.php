@@ -26,7 +26,7 @@
     </ol>
 
     <div class="container w-100 border border-3 border-primary rounded p-4 mt-4">
-        <form action="{{ route('productos.store') }}" method="POST">
+        <form action="{{ route('productos.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row g-3">
                 <!-- codigo -->
@@ -78,9 +78,10 @@
                     <label for="marca_id" class="form-label">Marca:</label>
                     <select data-size="5" title="Seleccione una marca..." data-live-search="true" name="marca_id" id="marca_id" class="form-control selectpicker">
                         @foreach ($marcas as $item)
-                        <option value="{{ $item->id }}">{{ $item->caracteristica->nombre }}</option>
+                        <option value="{{ $item->id }}" {{old('marca_id') == $item->id ? 'selected' : '' }} >
+                            {{ $item->nombre }}
+                        </option>
                         @endforeach
-
                     </select>
                     @error('marca_id')
                     <small class="text-danger">{{ '*'.$message }}</small>
@@ -93,7 +94,9 @@
                     <label for="categorias" class="form-label">Categorías:</label>
                     <select data-size="5" title="Seleccione una categoria..." data-live-search="true" name="categorias[]" id="categorias" class="form-control selectpicker" multiple>
                         @foreach ($categorias as $item)
-                        <option value="{{ $item->id }}">{{ $item->caracteristica->nombre }}</option>
+                        <option value="{{ $item->id }}" {{ (in_array($item->id, old('categorias', [])) ? 'selected' : '')}} >
+                            {{ $item->nombre }}
+                        </option>
                         @endforeach
                     </select>
                     @error('categorias')
