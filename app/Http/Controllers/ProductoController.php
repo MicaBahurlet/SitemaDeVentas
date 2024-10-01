@@ -50,8 +50,8 @@ class ProductoController extends Controller
             DB::beginTransaction();
             //tabla producto
             $producto = new Producto();
-            if ($request->hasFile('imag_path')) {
-                $name = $producto->handleUploadedImage($request->file('imag_path'));  
+            if ($request->hasFile('img_path')) {
+                $name = $producto->handleUploadedImage($request->file('img_path'));  
             }else{
                 $name = null;
             }           
