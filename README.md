@@ -25,6 +25,10 @@
 - Axios
 - Dotenv
 - Font Awesome
+- Bootstrap-select
+- Free icons
+- Sweet Alert
+
 
 
 <h3>Screens: </h3>

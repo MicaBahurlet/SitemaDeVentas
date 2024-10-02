@@ -12,7 +12,6 @@
 
 @if ( session('success') )
 <script>
-
     let message = "{{ session('success') }}";
     const Toast = Swal.mixin({
         toast: true,
@@ -54,12 +53,87 @@
             <table id="datatablesSimple" class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Nombre del producto</th>
-                        <th>Descripción</th>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Marca</th>
+                        <th>Categoria</th>
                         <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
+
+                <tbody>
+                    @foreach ($productos as $producto)
+                    <tr>
+                        <td>{{ $producto->codigo }}</td>
+                        <td>{{ $producto->nombre }}</td>
+                        <!-- <td>{{ $producto->descripcion }}</td> -->
+                        <td>{{ $producto->marca->caracteristica->nombre }}</td>
+                        <td>
+                            @foreach ($producto->categorias as $category)
+                            <div class="containder">
+                                <div class="row">
+                                    <span class="m-1 rounded-pill p1 bg-secondary text-white text-center">{{ $category->caracteristica->nombre }}</span>
+                                </div>
+                            </div>
+                            @endforeach
+                        </td>
+                        <td>
+                            @if ($producto->estado == 1)
+                            <span class="fw-bolder rounded bg-success text-white px-2 py-2">Activo</span>
+                            @else
+                            <span class="fw-bolder rounded bg-danger text-white px-2 py-2">Eliminada</span>
+                            @endif
+                        </td>
+
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                <button type="button" class="btn btn-warning">Editar</button>
+
+                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#verModal-{{ $producto->id }}" >Ver</button>
+
+                                <button type="button" class="btn btn-danger">Eliminar</button>
+                            </div>
+                        </td>
+
+                    </tr>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="verModal-{{ $producto->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Detalles del producto</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row mb-3">
+                                        <label for=""><span class="fw-bolder">Descripción:</span> {{ $producto->descripcion }}</label>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for=""><span class="fw-bolder">Fecha de vencimiento:</span> {{ $producto->fecha_vencimiento == '' ? 'No registra fecha' : $producto->fecha_vencimiento }} </label>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for=""><span class="fw-bolder">Stock:</span> {{ $producto->stock }}</label>
+
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for=""><span class="fw-bolder">Imagen:</span></label>
+                                        <!-- <img src="{{ asset($producto->img_path) }}" width="300px" height="300px" alt="Imagen del producto"> -->
+                                        @if ($producto->img_path != null)
+                                        <img src="{{ asset('img/productos/' . $producto->img_path) }}" width="300px" height="300px" alt="Imagen del producto">
+                                        @else
+                                        <span> No hay imagen del producto</span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
             </table>
         </div>
     </div>
@@ -71,4 +145,6 @@
 @push ('js')
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
 <script src="{{asset('js/datatables-simple-demo.js')}}"></script>
+
+
 @endpush
