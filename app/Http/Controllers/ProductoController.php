@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProductoRequest;
+use App\Http\Requests\UpdateProductoRequest;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
 use App\Models\Marca;
@@ -107,9 +108,46 @@ class ProductoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateProductoRequest $request, Producto $producto)
     {
-        //
+        try{
+            DB::beginTransaction();
+
+            //tabla producto
+            if ($request->hasFile('img_path')) {
+                $name = $producto->handleUploadedImage($request->file('img_path'));  
+
+                //eliminar si es que existe una img
+                if ($producto->img_path != null) {
+                    $producto->handleRemoveImage($producto->img_path);
+                }
+            }else{
+                $name = $producto->img_path;
+            }           
+            $producto->fill ([
+                'codigo' => $request->codigo,
+                'nombre' => $request->nombre,
+                'descripcion' => $request->descripcion,
+                'fecha_vencimiento' => $request->fecha_vencimiento,
+                'img_path' => $name,
+                'marca_id' => $request->marca_id,
+            ]);
+            $producto->save();
+
+            // tabla categoria
+            $categorias = $request->get('categorias');
+            $producto->categorias()->sync($categorias);
+
+
+            DB::commit();
+
+        } catch(Exception $e){
+
+            DB::rollBack();
+        }
+
+        return redirect()->route('productos.index')->with('success', 'Producto actualizado con exito');
+
     }
 
     /**

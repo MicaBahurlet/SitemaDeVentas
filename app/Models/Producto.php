@@ -42,4 +42,21 @@ class Producto extends Model
 
         return $name;
     }
+
+
+    /**
+     * Elimina una imagen de la carpeta 'productos'.
+     *
+     * @param string $imageName
+     * @return void
+     */
+    public function handleRemoveImage($imageName)
+    {
+        $imagePath = public_path('img/productos/' . $imageName);
+
+        // Verifica si la imagen existe antes de eliminarla
+        if (file_exists($imagePath)) {
+            unlink($imagePath);
+        }
+    }
 }

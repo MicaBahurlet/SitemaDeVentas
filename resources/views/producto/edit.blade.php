@@ -26,7 +26,8 @@
     </ol>
 
     <div class="container w-100 border border-3 border-primary rounded p-4 mt-4">
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('productos.update', ['producto' => $producto])}}" method="POST" enctype="multipart/form-data">
+            @method('PATCH')
             @csrf
             <div class="row g-3">
                 <!-- codigo -->
