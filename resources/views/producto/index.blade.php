@@ -88,7 +88,9 @@
 
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                <button type="button" class="btn btn-warning">Editar</button>
+                                <form action="{{ route('productos.edit', $producto->id) }}" method="GET">
+                                    <button type="submit" class="btn btn-warning">Editar</button>
+                                </form>
 
                                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#verModal-{{ $producto->id }}" >Ver</button>
 
@@ -100,7 +102,7 @@
 
                     <!-- Modal -->
                     <div class="modal fade" id="verModal-{{ $producto->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
+                        <div class="modal-dialog modal-dialog-scrollable">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h1 class="modal-title fs-5" id="exampleModalLabel">Detalles del producto</h1>
@@ -118,10 +120,10 @@
 
                                     </div>
                                     <div class="row mb-3">
-                                        <label for=""><span class="fw-bolder">Imagen:</span></label>
+                                        <label class="fw-bolder"><span class="fw-bolder">Imagen:</span></label>
                                         <!-- <img src="{{ asset($producto->img_path) }}" width="300px" height="300px" alt="Imagen del producto"> -->
                                         @if ($producto->img_path != null)
-                                        <img src="{{ asset('img/productos/' . $producto->img_path) }}" width="300px" height="300px" alt="Imagen del producto">
+                                        <img src="{{ asset('img/productos/' . $producto->img_path) }}"  alt="Imagen del producto" class="img-fluid img-thumbnail border border-2 rounded mt-3">
                                         @else
                                         <span> No hay imagen del producto</span>
                                         @endif

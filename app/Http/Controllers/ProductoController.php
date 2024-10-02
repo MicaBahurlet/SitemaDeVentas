@@ -89,9 +89,19 @@ class ProductoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Producto $producto)
     {
-        //
+        $marcas = Marca::join('caracteristicas', 'marcas.caracteristica_id', '=', 'caracteristicas.id')  
+        ->select('marcas.id as id', 'caracteristicas.nombre as nombre' )
+        ->where('caracteristicas.estado', '=', 1)
+        ->get();
+
+        $categorias = Categoria::join('caracteristicas', 'categorias.caracteristica_id', '=', 'caracteristicas.id')
+        ->select('categorias.id as id', 'caracteristicas.nombre as nombre' )
+        ->where('caracteristicas.estado', '=', 1)
+        ->get();
+
+        return view('producto.edit', compact('producto', 'marcas' , 'categorias'));
     }
 
     /**
