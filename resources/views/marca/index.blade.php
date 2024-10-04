@@ -72,7 +72,7 @@
                         </td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                <form action="{{ route('categorias.edit', $item->id) }}" method="GET">
+                                <form action="{{ route('marcas.edit', $item->id) }}" method="GET">
                                     <button type="submit" class="btn btn-warning">Editar</button>
                                 </form>
                                 @if( $item->caracteristica->estado == 1)
