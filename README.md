@@ -1,4 +1,6 @@
 <h1>Sales Sistem</h1>
+v 1.0
+
 
 <p align="start">
 <img width="500px"  src="https://skillicons.dev/icons?i=php,laravel,tailwind,bootstrap,jquery,mysql,nodejs,git,github,ps,perline=10"  />
