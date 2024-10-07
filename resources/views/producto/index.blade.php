@@ -82,7 +82,7 @@
                             @if ($producto->estado == 1)
                             <span class="fw-bolder rounded bg-success text-white px-2 py-2">Activo</span>
                             @else
-                            <span class="fw-bolder rounded bg-danger text-white px-2 py-2">Eliminada</span>
+                            <span class="fw-bolder rounded bg-danger text-white px-2 py-2">Eliminado</span>
                             @endif
                         </td>
 
@@ -92,9 +92,16 @@
                                     <button type="submit" class="btn btn-warning">Editar</button>
                                 </form>
 
-                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#verModal-{{ $producto->id }}" >Ver</button>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#verModal-{{ $producto->id }}" >Ver</button>
 
-                                <button type="button" class="btn btn-danger">Eliminar</button>
+                                @if( $producto->estado == 1)
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmModal-{{ $producto->id }}">Eliminar</button>
+                                @else
+                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#confirmModal-{{ $producto->id }}">Restaurar</button>
+                                @endif
+
+
+                                
                             </div>
                         </td>
 
@@ -135,6 +142,32 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Modal de confirmacion -->
+                    <div class="modal fade" id="confirmModal-{{ $producto->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">¡Atención!</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    {{ $producto-> estado == 1 ? '¿Deseas eliminar el producto?' : '¿Deseas restaurar el producto?'}}
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                    <Form action="{{ route('productos.destroy', ['producto' => $producto->id]) }}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger">Confirmar</button>
+                                    </Form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                     @endforeach
             </table>
         </div>
