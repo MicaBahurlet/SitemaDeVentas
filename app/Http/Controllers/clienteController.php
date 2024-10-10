@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePersonaRequest;
+use App\Models\Cliente;
 use App\Models\Documento;
 use App\Models\Persona;
 use Illuminate\Support\Facades\DB;
@@ -15,7 +16,8 @@ class clienteController extends Controller
      */
     public function index()
     {
-        return view('clientes.index');
+        $clientes = Cliente::with('persona.documento')->latest()->get();
+        return view('clientes.index' , compact('clientes'));
     }
 
     /**
