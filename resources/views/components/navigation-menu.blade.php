@@ -63,6 +63,10 @@
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-cart-shopping"></i></div>
                                 Productos
                             </a>
+                            <a class="nav-link" href=" {{ route('clientes.index') }}">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-people-group"></i></i></div>
+                                Clientes
+                            </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
