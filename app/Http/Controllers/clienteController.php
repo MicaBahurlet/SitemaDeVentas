@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Documento;
 use Illuminate\Http\Request;
 
 class clienteController extends Controller
@@ -19,7 +20,8 @@ class clienteController extends Controller
      */
     public function create()
     {
-        //
+        $documentos = Documento::all();
+        return view('clientes.create', compact('documentos'));
     }
 
     /**

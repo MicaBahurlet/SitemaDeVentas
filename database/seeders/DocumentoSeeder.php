@@ -20,6 +20,12 @@ class DocumentoSeeder extends Seeder
             [
                 'tipo_documento' => 'Pasaporte',
             ],
+            [
+                'tipo_documento' => 'CUIL',
+            ],
+            [
+                'tipo_documento' => 'CUIT',
+            ],
 
         ]);
     }
