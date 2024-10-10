@@ -32,15 +32,15 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('categoria_producto', function (Blueprint $table) {
-            // Eliminar las claves foráneas antes de restaurar el estado anterior
+            // necesito las claves foráneas antes de restaurar el estado anterior
             $table->dropForeign(['producto_id']);
             $table->dropForeign(['categoria_id']);
 
-            // Volver a agregar los índices únicos
+            //  agregar los índices únicos
             $table->unique('producto_id');
             $table->unique('categoria_id');
 
-            // Restaurar las claves foráneas
+            // para restaurrar las claves foráneas
             $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade');
             $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
         });
