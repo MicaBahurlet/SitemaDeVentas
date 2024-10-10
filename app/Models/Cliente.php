@@ -12,4 +12,12 @@ class Cliente extends Model
     public function persona(){
         return $this->belongsTo(Persona::class);
     }
+
+    public function ventas(){
+        return $this->hasMany(Venta::class);
+    }
+
+    protected $fillable = [
+        'persona_id'
+    ];
 }

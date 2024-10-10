@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePersonaRequest;
 use App\Models\Documento;
+use App\Models\Persona;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class clienteController extends Controller
@@ -27,9 +30,22 @@ class clienteController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StorePersonaRequest $request)
     {
-        //
+        try {
+
+            DB::beginTransaction();
+            $persona = Persona::create($request->validated());
+            $persona->cliente()->create([
+                'persona_id' => $persona->id
+            ]);
+            DB::commit();
+
+        }catch (\Exception $e) {
+            DB::rollBack();
+        }
+
+        return redirect()->route('clientes.index')->with('success', 'Cliente registrado');
     }
 
     /**
