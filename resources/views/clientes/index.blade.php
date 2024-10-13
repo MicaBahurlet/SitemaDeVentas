@@ -9,14 +9,60 @@
 
 <style>
     .custom-badge {
-        background-color: #198754;
-        color: white;
+        background-color: #2ecc71;
+        border-color: #a9dfbf;
+        color: #000;
         border-radius: 0.35rem;
-        padding: 0.6rem 1.2rem;
+        padding: 0.375rem 0.75rem;
         font-size: 1rem;
-        line-height: 1.2;
         display: inline-block;
         vertical-align: middle;
+    }
+
+    .custom-badge-delete {
+        background-color: #e74c3c;
+        border-color: #f5b7b1;
+        color: #000;
+        border-radius: 0.35rem;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .btn-pastel-yellow,
+    .btn-pastel-blue,
+    .btn-pastel-red,
+    .btn-pastel-green {
+        border-radius: 0.35rem;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .btn-pastel-yellow {
+        background-color: #f1c40f;
+        border-color: #f9e79f;
+        color: #000;
+    }
+
+    .btn-pastel-blue {
+        background-color: #6a9bdc;
+        border-color: #85c1ae;
+        color: #000;
+    }
+
+    .btn-pastel-red {
+        background-color: #e74c3c;
+        border-color: #f5b7b1;
+        color: #000;
+    }
+
+    .btn-pastel-green {
+        background-color: #2ecc71;
+        border-color: #a9dfbf;
+        color: #000;
     }
 </style>
 @endpush
@@ -92,15 +138,18 @@
                             <p class="text-muted mb-0">{{ $item->persona->numero_documento}}</p>
                         </td>
 
-                        <td>
+                        <!-- <td>
                             {{ $item->persona->tipo_persona}}
+                        </td> -->
+                        <td>
+                            {{ $item->persona->tipo_persona === 'natural' ? 'Cliente particular' : 'Persona jurídica' }}
                         </td>
 
                         <td>
                             @if ($item->persona->estado == 1)
-                            <span class="badge custom-badge">Activo</span>
+                            <span class="custom-badge">Activo</span>
                             @else
-                            <span class="badge text-bg-danger btn">Eliminado</span>
+                            <span class="custom-badge-delete">Eliminado</span>
                             @endif
                         </td>
 
@@ -109,12 +158,12 @@
 
                                 <form action="{{ route('clientes.edit', ['cliente' => $item]) }}" method="GET">
                                     <!-- @csrf -->
-                                    <button type="submit" class="btn btn-warning">Editar</button>
+                                    <button type="submit" class="btn btn-pastel-yellow">Editar</button>
                                 </form>
                                 @if( $item->persona->estado == 1)
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmModal-{{$item->id}}">Eliminar</button>
+                                <button type="button" class="btn btn-pastel-red" data-bs-toggle="modal" data-bs-target="#confirmModal-{{$item->id}}">Eliminar</button>
                                 @else
-                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#confirmModal-{{$item->id}}">Restaurar</button>
+                                <button type="button" class="btn btn-pastel-green" data-bs-toggle="modal" data-bs-target="#confirmModal-{{$item->id}}">Restaurar</button>
                                 @endif
                             </div>
                         <td>
