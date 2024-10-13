@@ -6,6 +6,83 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
+
+<style>
+    .custom-badge {
+        background-color: #2ecc71;
+        border-color: #a9dfbf;
+        color: #000;
+        border-radius: 0.35rem;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .custom-badge-delete {
+        background-color: #e74c3c;
+        border-color: #f5b7b1;
+        color: #000;
+        border-radius: 0.35rem;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .custom-btn {
+        background-color: #d3d3d3;
+        color: #000;
+        border: none;
+        border-radius: 0.35rem;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        /* cursor: pointer; */
+        display: inline-block;
+        /* transition: background-color 0.3s ease; */
+        width: auto;
+        margin-bottom: 5px;
+    }
+
+    /* .custom-btn:hover {
+        background-color: #5a6268;
+    } */
+
+    .btn-pastel-yellow,
+    .btn-pastel-blue,
+    .btn-pastel-red,
+    .btn-pastel-green {
+        border-radius: 0.35rem;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .btn-pastel-yellow {
+        background-color: #f1c40f;
+        border-color: #f9e79f;
+        color: #000;
+    }
+
+    .btn-pastel-blue {
+        background-color: #6a9bdc;
+        border-color: #85c1ae;
+        color: #000;
+    }
+
+    .btn-pastel-red {
+        background-color: #e74c3c;
+        border-color: #f5b7b1;
+        color: #000;
+    }
+
+    .btn-pastel-green {
+        background-color: #a9dfbf;
+        border-color: #a9dfbf;
+        color: #000;
+    }
+</style>
 @endpush
 
 @section('content')
@@ -32,7 +109,7 @@
 @endif
 
 <div class="container-fluid px-4">
-    <h1 class="mt-4 text-center">Productos</h1>
+    <h1 class="mt-4 mb-4 fw-bold"  style="font-size: 3rem;">Productos</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"> <a href="{{ route('panel') }}">Inicio</a></li>
         <li class="breadcrumb-item active">Productos</li>
@@ -72,22 +149,22 @@
                         <td>
                             @foreach ($producto->categorias as $category)
                             <div class="containder">
-                                <div class="row">
-                                    <span class="m-1 rounded-pill p1 bg-secondary text-white text-center">{{ $category->caracteristica->nombre }}</span>
+                                <div class="row ">
+                                    <span class=" custom-btn mx-1">{{ $category->caracteristica->nombre }}</span>
                                 </div>
                             </div>
                             @endforeach
                         </td>
                         <td>
                             @if ($producto->estado == 1)
-                            <span class="fw-bolder rounded bg-success text-white px-2 py-2">Activo</span>
+                            <span class="custom-badge">Activo</span>
                             @else
-                            <span class="fw-bolder rounded bg-danger text-white px-2 py-2">Eliminado</span>
+                            <span class="custom-badge-delete">Eliminado</span>
                             @endif
                         </td>
 
                         <td>
-                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                            <!-- <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                                 <form action="{{ route('productos.edit', $producto->id) }}" method="GET">
                                     <button type="submit" class="btn btn-warning">Editar</button>
                                 </form>
@@ -99,10 +176,22 @@
                                 @else
                                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#confirmModal-{{ $producto->id }}">Restaurar</button>
                                 @endif
+                            </div> -->
 
+                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                <form action="{{ route('productos.edit', $producto->id) }}" method="GET">
+                                    <button type="submit" class="btn btn-pastel-yellow">Editar</button>
+                                </form>
 
-                                
+                                <button type="button" class="btn btn-pastel-blue" data-bs-toggle="modal" data-bs-target="#verModal-{{ $producto->id }}">Ver</button>
+
+                                @if( $producto->estado == 1)
+                                <button type="button" class="btn btn-pastel-red" data-bs-toggle="modal" data-bs-target="#confirmModal-{{ $producto->id }}">Eliminar</button>
+                                @else
+                                <button type="button" class="btn btn-pastel-green" data-bs-toggle="modal" data-bs-target="#confirmModal-{{ $producto->id }}">Restaurar</button>
+                                @endif
                             </div>
+
                         </td>
 
                     </tr>
@@ -130,7 +219,7 @@
                                         <label class="fw-bolder"><span class="fw-bolder">Imagen:</span></label>
                                         <!-- <img src="{{ asset($producto->img_path) }}" width="300px" height="300px" alt="Imagen del producto"> -->
                                         @if ($producto->img_path != null)
-                                        <img src="{{ asset('img/productos/' . $producto->img_path) }}"  alt="Imagen del producto" class="img-fluid img-thumbnail border border-2 rounded mt-3">
+                                        <img src="{{ asset('img/productos/' . $producto->img_path) }}" alt="Imagen del producto" class="img-fluid img-thumbnail border border-2 rounded mt-3">
                                         @else
                                         <span> No hay imagen del producto</span>
                                         @endif

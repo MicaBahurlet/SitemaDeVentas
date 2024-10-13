@@ -5,6 +5,67 @@
 @push('css')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
+
+<style>
+    .custom-badge {
+        background-color: #2ecc71;
+        border-color: #a9dfbf;
+        color: #000;
+        border-radius: 0.35rem;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .custom-badge-delete {
+        background-color: #e74c3c;
+        border-color: #f5b7b1;
+        color: #000;
+        border-radius: 0.35rem;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .btn-pastel-yellow,
+    .btn-pastel-blue,
+    .btn-pastel-red,
+    .btn-pastel-green {
+        border-radius: 0.35rem;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        display: inline-block;
+        vertical-align: middle;
+    }
+ 
+
+    .btn-pastel-yellow {
+        background-color: #f1c40f;
+        border-color: #f9e79f;
+        color: #000;
+    }
+
+    .btn-pastel-blue {
+        background-color: #6a9bdc;
+        border-color: #85c1ae;
+        color: #000;
+    }
+
+    .btn-pastel-red {
+        background-color: #e74c3c;
+        border-color: #f5b7b1;
+        color: #000;
+    }
+
+    .btn-pastel-green {
+        background-color: #2ecc71;
+        border-color: #a9dfbf;
+        color: #000;
+    }
+
+</style>
 @endpush
 
 @section('content')
@@ -31,9 +92,9 @@
 @endif
 
 <div class="container-fluid px-4">
-    <h1 class="mt-4 text-center">Marcas</h1>
+    <h1 class="mt-4 mb-4 fw-bold"  style="font-size: 3rem;">Marcas</h1>
     <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item"><a href="{{ route('panel') }}">Inicio</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('panel')}}">Inicio</a></li>
         <li class="breadcrumb-item active">Marcas</li>
     </ol>
 
@@ -65,20 +126,20 @@
                         <td>{{ $item->caracteristica->descripcion }}</td>
                         <td>
                             @if ($item->caracteristica->estado == 1)
-                            <span class="fw-bolder rounded bg-success text-white px-2 py-2">Activa</span>
+                            <span class="custom-badge">Activa</span>
                             @else
-                            <span class="fw-bolder rounded bg-danger text-white px-2 py-2">Eliminada</span>
+                            <span class="custom-badge-delete">Eliminada</span>
                             @endif
                         </td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                                 <form action="{{ route('marcas.edit', $item->id) }}" method="GET">
-                                    <button type="submit" class="btn btn-warning">Editar</button>
+                                    <button type="submit" class="btn btn-pastel-yellow">Editar</button>
                                 </form>
                                 @if( $item->caracteristica->estado == 1)
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmModal-{{ $item->id }}">Eliminar</button>
+                                <button type="button" class="btn btn-pastel-red" data-bs-toggle="modal" data-bs-target="#confirmModal-{{ $item->id }}">Eliminar</button>
                                 @else
-                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#confirmModal-{{ $item->id }}">Restaurar</button>
+                                <button type="button" class="btn btn-pastel-green" data-bs-toggle="modal" data-bs-target="#confirmModal-{{ $item->id }}">Restaurar</button>
                                 @endif
                             </div>
                         </td>
