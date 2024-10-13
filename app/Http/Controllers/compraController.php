@@ -19,7 +19,7 @@ class compraController extends Controller
      */
     public function create()
     {
-        //
+        return view('compra.create');
     }
 
     /**

@@ -14,14 +14,14 @@
 @section ('content')
 
 <div class="container-fluid px-4">
-    <h1 class="mt-4 text-center">Crear categoría</h1>
+    <h1 class="mt-4 mb-4 fw-bold" style="font-size: 3rem;">Crear categoría</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"> <a href="{{ route('panel') }}">Inicio</a></li>
         <li class="breadcrumb-item "><a href="{{ route('categorias.index') }}">Categorías </a></li>
         <li class="breadcrumb-item active">Crear categoría</li>
     </ol>
 
-    <div class= "container w-100 border border-3 border-primary rounded p-4 mt-4">
+    <div class= "container w-100 border rounded p-4 mt-5">
 
         <form action="{{ route('categorias.store') }}" method="POST">
             @csrf

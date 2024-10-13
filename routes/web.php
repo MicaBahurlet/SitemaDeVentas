@@ -6,6 +6,7 @@ use App\Http\Controllers\clienteController;
 use App\Http\Controllers\compraController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\marcaController;
+use App\Http\Controllers\proveedorController;
 
 Route::get('/', function () {
     return view('template');
@@ -23,6 +24,7 @@ Route::resources([
     'marcas' => marcaController::class,
     'productos' => ProductoController::class,
     'clientes' => clienteController::class,
+    'proveedores' => proveedorController::class,
     'compras' => compraController::class,
 
 ]);

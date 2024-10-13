@@ -18,14 +18,14 @@
 
 <div class="container-fluid px-4">
 
-    <h1 class="mt-4 text-center">Editar producto</h1>
+    <h1 class="mt-4 mb-4 fw-bold" style="font-size: 3rem;">Editar producto</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"> <a href="{{ route('panel') }}">Inicio</a></li>
         <li class="breadcrumb-item "><a href="{{ route('productos.index') }}">Productos </a></li>
         <li class="breadcrumb-item active">Editar producto</li>
     </ol>
 
-    <div class="container w-100 border border-3 border-primary rounded p-4 mt-4">
+    <div class="container w-100 border  rounded p-4 mt-5">
         <form action="{{ route('productos.update', ['producto' => $producto])}}" method="POST" enctype="multipart/form-data">
             @method('PATCH')
             @csrf

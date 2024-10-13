@@ -12,14 +12,14 @@
 
 @section('content')
 <div class="container-fluid px-4">
-    <h1 class="mt-4 text-center">Crear Marca</h1>
+    <h1  class="mt-4 mb-4 fw-bold" style="font-size: 3rem;">Crear Marca</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"><a href="{{ route('panel') }}">Inicio</a></li>
         <li class="breadcrumb-item"><a href="{{ route('marcas.index')}}">Marcas</a></li>
         <li class="breadcrumb-item active">Crear marca</li>
     </ol>
 
-    <div class="container w-100 border border-3 border-primary rounded p-4 mt-4">
+    <div class="container w-100 border  rounded p-4 mt-5">
         <form action="{{ route('marcas.store') }}" method="POST">
             @csrf
             <div class="row g-3">

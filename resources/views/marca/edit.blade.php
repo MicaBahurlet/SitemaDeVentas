@@ -12,7 +12,7 @@
 
 @section('content')
 <div class="container-fluid px-4">
-    <h1 class="mt-4 text-center">Editar Marca</h1>
+    <h1 class="mt-4 mb-4 fw-bold" style="font-size: 3rem;">Editar Marca</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"><a href="{{ route('panel') }}">Inicio</a></li>
         <li class="breadcrumb-item"><a href="{{ route('marcas.index')}}">Marca</a></li>
@@ -45,7 +45,7 @@
                 </div>
 
             </div>
-            <div class="card-footer text-center">
+            <div class="card-footer pt-3">
                 <button type="submit" class="btn btn-primary">Actualizar</button>
                 <button type="reset" class="btn btn-secondary">Reiniciar</button>
             </div>
