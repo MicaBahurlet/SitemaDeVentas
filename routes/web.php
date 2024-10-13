@@ -13,6 +13,9 @@ Route::get('/', function () {
 
 Route::view ('/panel', 'panel.index') ->name ('panel');
 
+Route::view('/terminos', 'legal.terminos')->name('terminos');
+Route::view('/privacidad', 'legal.privacidad')->name('privacidad');
+
 
 
 Route::resources([

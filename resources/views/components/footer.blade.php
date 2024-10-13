@@ -3,9 +3,9 @@
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; Micaela Bahurlet 2024</div>
                             <div>
-                                <a href="#">Política de privacidad</a>
+                                <a href="{{ route('privacidad') }}" >Política de privacidad</href=>
                                 &middot;
-                                <a href="#">Términos &amp; Condiciones</a>
+                                <a href="{{ route('terminos') }}" >Términos &amp; Condiciones</a>
                             </div>
                         </div>
                     </div>
