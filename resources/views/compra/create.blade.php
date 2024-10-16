@@ -40,7 +40,7 @@
     </ol>
 </div>
 
-<form action=" " method="POST">
+<form action="{{ route('compras.store')}}" method="POST">
     @csrf
 
     <div class="container mt-4">
@@ -106,7 +106,7 @@
                                     <tbody>
                                         <tr>
                                             <th></th>
-                                            <th></th>
+                                            <th> </th>
                                             <th></th>
                                             <th></th>
                                             <th></th>
@@ -131,7 +131,7 @@
                                         <tr>
                                             <th></th>
                                             <th colspan="4">Total </th>
-                                            <th colspan="2"><span id="total">0</span></th>
+                                            <th colspan="2"> <input type="hidden" name="total" value="0" id="inputTotal"><span id="total">0</span></th>
                                         </tr>
                                     </tfoot>
 
@@ -167,6 +167,9 @@
                                 <option value="{{ $item->id }}">{{ $item->persona->razon_social }}</option>
                                 @endforeach
                             </select>
+                            @error('proveedore_id')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
 
                         <!-- Tipo de comprobante -->
@@ -177,24 +180,38 @@
                                 <option value="{{ $item->id }}">{{ $item->tipo_comprobante }}</option>
                                 @endforeach
                             </select>
+                            @error('comprobante_id')
+                                <small class="text-danger">{{'*'.$message }}</small>
+                            @enderror
                         </div>
 
                         <!-- Numero de comprobante -->
                         <div class="col-md-12 mb-2">
                             <label for="numero_comprobante" class="form-label">Número de Comprobante:</label>
                             <input type="text" name="numero_comprobante" id="numero_comprobante" class="form-control" value="{{old('numero_comprobante')}}">
+                            @error('numero_comprobante')
+                                <small class="text-danger">{{'*'.$message }}</small>
+                            @enderror
                         </div>
 
                         <!-- Impuesto -->
                         <div class="col-md-6 mb-2">
                             <label for="impuesto" class="form-label">Impuesto (IVA):</label>
                             <input readonly type="text" name="impuesto" id="impuesto" class="form-control" value="{{old('impuesto')}}">
+                            @error('impuesto')
+                                <small class="text-danger">{{'*'.$message }}</small>   
+                            @enderror
                         </div>
 
                         <!-- Fecha -->
                         <div class="col-md-6 mb-2">
                             <label for="fecha" class="form-label">Fecha:</label>
                             <input readonly type="date" name="fecha" id="fecha" class="form-control" value="{{old('fecha')}}" value="<?php echo date("Y-m-d"); ?>">
+                            <?php
+                                use Carbon\Carbon;
+                                $fecha_hora = Carbon::now('America/Argentina/Buenos_Aires')->toDateTimeString();
+                            ?>                           
+                            <input type="hidden" name="fecha_hora" id="fecha_hora" value="{{$fecha_hora}}">
                         </div>
 
                         <div class="col-md-12 mb-2">
@@ -290,7 +307,9 @@
         $('#sumas').html(sumas);
         $('#iva').html(iva);
         $('#total').html(total);
-        // $('#impuesto').val(impuesto + '%');
+        $('#impuesto').val(impuesto + '%');
+        $('#inputTotal').val(total);
+        
         // $('#inputTotal').val(total);
 
         limpiarCampos();
@@ -331,13 +350,14 @@
                 iva = round(sumas / 100 * impuesto);
                 total = round(sumas + iva);
 
+                //crear fila de la tabla cuando agrego producto
                 let fila = '<tr  id="fila' + cont + '" >' +
                     '<th>' + (cont + 1) + '</th>' +
-                    '<th>' + nameProducto + '</th>' +
-                    '<th>' + cantidad + '</th>' +
-                    '<th>' + precioCompra + '</th>' +
-                    '<th>' + precioVenta + '</th>' +
-                    '<th>' + subtotal[cont] + '</th>' +
+                    '<td><input type="hidden" name="arrayidproducto[]" value="' + idProducto + '">' + nameProducto + '</td>' +
+                    '<td><input type="hidden" name="arraycantidad[]" value="' + cantidad + '">' + cantidad + '</td>' +
+                    '<td><input type="hidden" name="arraypreciocompra[]" value="' + precioCompra + '">' + precioCompra + '</td>' +
+                    '<td><input type="hidden" name="arrayprecioventa[]" value="' + precioVenta + '">' + precioVenta + '</td>' +
+                    '<td>' + subtotal[cont] + '</td>' +
                     '<th><button type="button" class="btn btn-danger" onClick="eliminarProducto(' + cont + ')"><i class="fa-solid fa-trash"></i></button></th>' +
                     '</tr>';
 
@@ -350,6 +370,8 @@
                 $('#sumas').html(sumas);
                 $('#iva').html(iva);
                 $('#total').html(total);
+                $('#impuesto').val(iva);
+                $('#inputTotal').val(total);
 
             } else {
                 showModal('Los datos ingresados son incorrectos', 'error');
@@ -369,10 +391,12 @@
         $('#sumas').html(sumas);
         $('#iva').html(iva);
         $('#total').html(total);
+        $('#impuesto').val(iva);
+        $('#inputTotal').val(total);
 
         //Eliminar fila
         $('#fila' + indice).remove();
-        
+
         disableButtons();
 
     }
