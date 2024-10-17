@@ -18,7 +18,11 @@ class compraController extends Controller
      */
     public function index()
     {
-        return view('compra.index');
+        $compras = Compra::with('comprobante','proveedore.persona')
+        ->where('estado', 1)
+        ->latest()
+        ->get();
+        return view('compra.index', compact('compras')); ;
     }
 
     /**

@@ -39,7 +39,7 @@
         display: inline-block;
         vertical-align: middle;
     }
- 
+
 
     .btn-pastel-yellow {
         background-color: #f1c40f;
@@ -64,7 +64,6 @@
         border-color: #a9dfbf;
         color: #000;
     }
-
 </style>
 @endpush
 
@@ -77,7 +76,7 @@
         toast: true,
         position: "top-end",
         showConfirmButton: false,
-        timer: 2000,
+        timer: 3000,
         timerProgressBar: true,
         didOpen: (toast) => {
             toast.onmouseenter = Swal.stopTimer;
@@ -92,7 +91,7 @@
 @endif
 
 <div class="container-fluid px-4">
-    <h1 class="mt-4 mb-4 fw-bold"  style="font-size: 3rem;">Compras</h1>
+    <h1 class="mt-4 mb-4 fw-bold" style="font-size: 3rem;">Compras</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"><a href="{{ route('panel')}}">Inicio</a></li>
         <li class="breadcrumb-item active">Compras</li>
@@ -113,14 +112,52 @@
             <table id="datatablesSimple" class="table table-striped ">
                 <thead>
                     <tr>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
-                        <th>Estado</th>
+                        <th>Comprobante</th>
+                        <th>Proveedor</th>
+                        <th>Fecha y hora</th>
+                        <th>Total</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                   
+                    @foreach ($compras as $item)
+                    <tr>
+                        <td>
+                            <p class="fw-semibold mb-1">{{$item->comprobante->tipo_comprobante}}</p>
+                            <p class="text-muted mb-0">{{$item->numero_comprobante}}</p>
+                        </td>
+
+
+                        <td>
+                            @if ($item->proveedore && $item->proveedore->persona)
+                            <p class="fw-semibold mb-1">{{ucfirst ($item->proveedore->persona->tipo_persona) }}</p>
+                            <p class="text-muted mb-0">{{ $item->proveedore->persona->razon_social }}</p>
+                            @else
+                            <p class="text-danger">Proveedor o persona no disponible</p>
+                            @endif
+                        </td>
+
+
+                        <td>
+                            {{
+                                \Carbon\Carbon::parse($item->fecha_hora)->format('d/m/Y') . ' ' .
+                                \Carbon\Carbon::parse($item->fecha_hora)->format('H:i')
+                            }}
+                        </td>
+
+                        <td>
+                            {{$item->total}}
+                        </td>
+
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-success">Ver</button>
+                                <button type="button" class="btn btn-danger">Eliminar</button>
+                            </div>
+                        </td>
+                    </tr>
+                    @endforeach
+
                 </tbody>
             </table>
         </div>
