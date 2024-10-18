@@ -48,6 +48,8 @@ class compraController extends Controller
             DB::beginTransaction();
             $compra = Compra::create($request->validated());
 
+            // dd($compra);
+
             //recuperar los arrays
             $arrayProducto_id = $request->get('arrayidproducto');
             $arrayCantidad = $request->get('arraycantidad');
@@ -83,6 +85,9 @@ class compraController extends Controller
 
         }catch (\Exception $e) {
             DB::rollBack();
+            
+
+            
         }
 
         return redirect()->route('compras.index')->with('success', 'Compra registrada correctamente');
