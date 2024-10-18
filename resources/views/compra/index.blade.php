@@ -64,6 +64,17 @@
         border-color: #a9dfbf;
         color: #000;
     }
+
+    /* .table {
+        border-collapse: collapse;
+        
+    }
+
+    .table th,
+    .table td {
+        border: none;
+        
+    } */
 </style>
 @endpush
 
@@ -168,10 +179,35 @@
                                         Ver
                                     </button>
                                 </form>
-                                <button type="button" class="btn btn-pastel-red">Eliminar</button>
+                                <button type="button" class="btn btn-pastel-red" data-bs-toggle="modal" data-bs-target="#confirmModal-{{ $item->id }}" >Eliminar</button>
                             </div>
                         </td>
                     </tr>
+
+                    <!-- Modal de confirmacion -->
+                    <div class="modal fade" id="confirmModal-{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">¡Atención!</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    ¿Seguro que quieres eliminar el registro de compra? <br>
+                                    Estacción es irreversible
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                    <Form action="{{ route('compras.destroy', ['compra' => $item->id]) }}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger">Confirmar</button>
+                                    </Form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     @endforeach
 
                 </tbody>
