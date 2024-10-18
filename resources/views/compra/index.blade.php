@@ -128,14 +128,26 @@
                         </td>
 
 
-                        <td>
+                        <!-- <td>
                             @if ($item->proveedore && $item->proveedore->persona)
                             <p class="fw-semibold mb-1">{{ucfirst ($item->proveedore->persona->tipo_persona) }}</p>
                             <p class="text-muted mb-0">{{ $item->proveedore->persona->razon_social }}</p>
                             @else
                             <p class="text-danger">Proveedor o persona no disponible</p>
                             @endif
+                        </td> -->
+
+                        <td>
+                            @if ($item->proveedore && $item->proveedore->persona)
+                            <p class="fw-semibold mb-1">
+                                {{ $item->proveedore->persona->tipo_persona === 'natural' ? 'Cliente particular' : 'Persona jurídica' }}
+                            </p>
+                            <p class="text-muted mb-0">{{ $item->proveedore->persona->razon_social }}</p>
+                            @else
+                            <p class="text-danger">Proveedor o persona no disponible</p>
+                            @endif
                         </td>
+
 
 
                         <td>
@@ -152,11 +164,11 @@
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <form action="{{ route('compras.show', ['compra' => $item]) }}" method="GET">
-                                    <button type="submit" class="btn btn-success">
+                                    <button type="submit" class="btn btn-pastel-blue">
                                         Ver
                                     </button>
                                 </form>
-                                <button type="button" class="btn btn-danger">Eliminar</button>
+                                <button type="button" class="btn btn-pastel-red">Eliminar</button>
                             </div>
                         </td>
                     </tr>
