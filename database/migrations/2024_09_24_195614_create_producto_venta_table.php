@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('producto_venta', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('venta_id')-> unique()-> constrained('compras')->onDelete('cascade' );
-            $table->foreignId('producto_id')-> unique()-> constrained('productos')->onDelete('cascade' );
+            $table->foreignId('venta_id')->constrained('compras')->onDelete('cascade' );
+            $table->foreignId('producto_id')->constrained('productos')->onDelete('cascade' );
             $table->integer ('cantidad')->unsigned();
             $table->decimal('precio_venta', 10, 2);
             $table->decimal('descuento', 8, 2);
