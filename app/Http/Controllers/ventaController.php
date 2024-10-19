@@ -111,9 +111,9 @@ class ventaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Venta $venta)
     {
-        //
+        return view('venta.show', compact('venta'));
     }
 
     /**
@@ -137,6 +137,11 @@ class ventaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Venta::where('id', $id)
+        ->update([
+            'estado' => 0
+        ]);
+
+        return redirect()->route('ventas.index')->with('success', 'Compra eliminada');
     }
 }
