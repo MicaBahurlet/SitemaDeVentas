@@ -8,31 +8,34 @@
 
 <style>
     .custom-badge {
-        background-color: #2ecc71;
+        /* background-color: #28C76F; */
+        font-weight: 700;
+        color: #28C76F;
         border-color: #a9dfbf;
-        color: #000;
         border-radius: 0.35rem;
         padding: 0.375rem 0.75rem;
         font-size: 1rem;
         display: inline-block;
         vertical-align: middle;
+        
     }
 
     .custom-badge-delete {
-        background-color: #e74c3c;
-        border-color: #f5b7b1;
-        color: #000;
+        /* background-color: #EA5455; */
+        color: #EA5455;
         border-radius: 0.35rem;
         padding: 0.375rem 0.75rem;
         font-size: 1rem;
         display: inline-block;
         vertical-align: middle;
+        font-weight: 700;
     }
 
     .btn-pastel-yellow,
     .btn-pastel-blue,
     .btn-pastel-red,
-    .btn-pastel-green {
+    .btn-pastel-green,
+    .btn-pastel-violet {
         border-radius: 0.35rem;
         padding: 0.375rem 0.75rem;
         font-size: 1rem;
@@ -40,29 +43,38 @@
         vertical-align: middle;
     }
 
-    .btn-pastel-yellow {
-        background-color: #f1c40f;
+    .btn-pastel-violet {
+        background-color: #6C63FF;
         border-color: #f9e79f;
-        color: #000;
+        color: white;
     }
 
     .btn-pastel-blue {
         background-color: #6a9bdc;
         border-color: #85c1ae;
-        color: #000;
+        color: white;
     }
 
     .btn-pastel-red {
-        background-color: #e74c3c;
+        background-color: #D93737;
         border-color: #f5b7b1;
-        color: #000;
+        color: white;
     }
 
     .btn-pastel-green {
         background-color: #2ecc71;
         border-color: #a9dfbf;
-        color: #000;
+        color: white;
     }
+
+    table .btn:hover,
+    table .btn:focus {
+        background-color: inherit !important;
+        color: inherit !important;
+        box-shadow: none !important;
+        border-color: inherit !important;
+    }
+
 
 </style>
 
@@ -101,7 +113,7 @@
 
     <div class="mb-4">
         <a href="{{ route('categorias.create') }}">
-            <button type="button" class="btn btn-primary"> Añadir nuevo registro</button>
+            <button type="button" class="btn btn-primary" style="background-color: #5EA1E8; font-weight: bold ;color:white"> Añadir nueva categoría</button>
         </a>
     </div>
 
@@ -141,7 +153,7 @@
 
                                 <form action="{{ route('categorias.edit', $categoria->id) }}" method="GET">
                                     <!-- @csrf -->
-                                    <button type="submit" class="btn btn-pastel-yellow">Editar</button>
+                                    <button type="submit" class="btn btn-pastel-violet">Editar</button>
 
                                 </form>
                                 @if( $categoria->caracteristica->estado == 1)

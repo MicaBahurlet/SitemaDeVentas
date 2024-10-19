@@ -34,7 +34,7 @@
 @endif
 
 <div class="container-fluid px-4 ms-lg-5">
-    <h1 class="mt-4 mb-4 fw-bold" style="font-size: 3rem;">Cargar una Venta</h1>
+    <h1 class="mt-4 mb-4 fw-bold" style="font-size: 3rem;">Cargar una venta</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"> <a href="{{ route('panel') }}">Inicio</a></li>
         <li class="breadcrumb-item "><a href="{{ route('ventas.index') }}">Ventas</a></li>
@@ -151,7 +151,8 @@
 
                         <!-- //boton para cancelar venta -->
                         <div class="col-md-12 mb-2">
-                            <button id="cancelar" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <button id="cancelar" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                            style="font-weight: bold ;color:white">
                                 Cancelar venta
                             </button>
                         </div>
@@ -231,7 +232,7 @@
 
 
                         <div class="col-md-12 mb-2">
-                            <button type="submit" class="btn btn-primary mt-2" id="guardar">Guardar</button>
+                            <button type="submit" id="guardar" class="btn btn-primary mt-2 mb-2" style="background-color: #5EA1E8; font-weight: bold ;color:white">Guardar</button>
 
                         </div>
 

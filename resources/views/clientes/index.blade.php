@@ -9,9 +9,9 @@
 
 <style>
     .custom-badge {
-        background-color: #2ecc71;
-        border-color: #a9dfbf;
-        color: #000;
+        /* background-color: #2ecc71; */
+        font-weight: 700;
+        color:#28C76F;
         border-radius: 0.35rem;
         padding: 0.375rem 0.75rem;
         font-size: 1rem;
@@ -20,9 +20,9 @@
     }
 
     .custom-badge-delete {
-        background-color: #e74c3c;
-        border-color: #f5b7b1;
-        color: #000;
+        /* background-color: #e74c3c; */
+        color: #EA5455;
+        font-weight: 700;
         border-radius: 0.35rem;
         padding: 0.375rem 0.75rem;
         font-size: 1rem;
@@ -33,7 +33,8 @@
     .btn-pastel-yellow,
     .btn-pastel-blue,
     .btn-pastel-red,
-    .btn-pastel-green {
+    .btn-pastel-green,
+    .btn-pastel-violet {
         border-radius: 0.35rem;
         padding: 0.375rem 0.75rem;
         font-size: 1rem;
@@ -41,10 +42,10 @@
         vertical-align: middle;
     }
 
-    .btn-pastel-yellow {
-        background-color: #f1c40f;
+    .btn-pastel-violet {
+        background-color: #6C63FF;
         border-color: #f9e79f;
-        color: #000;
+        color: white;
     }
 
     .btn-pastel-blue {
@@ -54,15 +55,23 @@
     }
 
     .btn-pastel-red {
-        background-color: #e74c3c;
+        background-color: #D93737;
         border-color: #f5b7b1;
-        color: #000;
+        color: white;
     }
 
     .btn-pastel-green {
         background-color: #2ecc71;
         border-color: #a9dfbf;
-        color: #000;
+        color: white;
+    }
+
+    table .btn:hover,
+    table .btn:focus {
+        background-color: inherit !important;
+        color: inherit !important;
+        box-shadow: none !important;
+        border-color: inherit !important;
     }
 </style>
 @endpush
@@ -99,7 +108,7 @@
 
     <div class="mb-4">
         <a href="{{ route('clientes.create') }}">
-            <button type="button" class="btn btn-primary"> Añadir nuevo Cliente</button>
+            <button type="button" class="btn btn-primary" style="background-color: #5EA1E8; font-weight: bold ;color:white"> Añadir nuevo Cliente</button>
         </a>
     </div>
 
@@ -158,7 +167,7 @@
 
                                 <form action="{{ route('clientes.edit', ['cliente' => $item]) }}" method="GET">
                                     <!-- @csrf -->
-                                    <button type="submit" class="btn btn-pastel-yellow">Editar</button>
+                                    <button type="submit" class="btn btn-pastel-violet">Editar</button>
                                 </form>
                                 @if( $item->persona->estado == 1)
                                 <button type="button" class="btn btn-pastel-red" data-bs-toggle="modal" data-bs-target="#confirmModal-{{$item->id}}">Eliminar</button>

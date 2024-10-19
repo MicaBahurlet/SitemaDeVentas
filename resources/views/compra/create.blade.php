@@ -141,7 +141,7 @@
                         </div>
 
                         <div class="col-md-12 mb-2">
-                            <button id="cancelar" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <button id="cancelar" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-weight: bold ;color:white">
                                 Cancelar compra
                             </button>
                         </div>
@@ -217,7 +217,7 @@
                         </div>
 
                         <div class="col-md-12 mb-2">
-                            <button type="submit" class="btn btn-primary mt-2" id="guardar">Guardar</button>
+                            <button type="submit" class="btn btn-primary mt-2" id="guardar" style="background-color: #5EA1E8; font-weight: bold ;color:white">Guardar</button>
 
                         </div>
 

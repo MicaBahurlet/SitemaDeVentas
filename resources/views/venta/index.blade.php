@@ -7,27 +7,6 @@
 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
 
 <style>
-    .custom-badge {
-        background-color: #2ecc71;
-        border-color: #a9dfbf;
-        color: #000;
-        border-radius: 0.35rem;
-        padding: 0.375rem 0.75rem;
-        font-size: 1rem;
-        display: inline-block;
-        vertical-align: middle;
-    }
-
-    .custom-badge-delete {
-        background-color: #e74c3c;
-        border-color: #f5b7b1;
-        color: #000;
-        border-radius: 0.35rem;
-        padding: 0.375rem 0.75rem;
-        font-size: 1rem;
-        display: inline-block;
-        vertical-align: middle;
-    }
 
     .btn-pastel-yellow,
     .btn-pastel-blue,
@@ -48,15 +27,15 @@
     }
 
     .btn-pastel-blue {
-        background-color: #6a9bdc;
+        background-color: #4169E1;
         border-color: #85c1ae;
-        color: #000;
+        color: white;
     }
 
     .btn-pastel-red {
-        background-color: #e74c3c;
+        background-color: #D93737;
         border-color: #f5b7b1;
-        color: #000;
+        color: white;
     }
 
     .btn-pastel-green {
@@ -75,6 +54,14 @@
         border: none;
         
     } */
+
+    table .btn:hover,
+    table .btn:focus {
+        background-color: inherit !important;
+        color: inherit !important;
+        box-shadow: none !important;
+        border-color: inherit !important;
+    }
 </style>
 
 @endpush
@@ -112,7 +99,7 @@
 
     <div class="mb-4">
         <a href="{{ route('ventas.create') }}">
-            <button type="button" class="btn btn-primary"> Añadir nueva venta</button>
+            <button type="button" class="btn btn-primary" style="background-color: #5EA1E8; font-weight: bold ;color:white"> Añadir nueva venta</button>
         </a>
     </div>
 

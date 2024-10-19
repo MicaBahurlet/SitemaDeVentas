@@ -9,9 +9,9 @@
 
 <style>
     .custom-badge {
-        background-color: #2ecc71;
-        border-color: #a9dfbf;
-        color: #000;
+        /* background-color: #28C76F; */
+        font-weight: 700;
+        color: #28C76F;
         border-radius: 0.35rem;
         padding: 0.375rem 0.75rem;
         font-size: 1rem;
@@ -20,14 +20,14 @@
     }
 
     .custom-badge-delete {
-        background-color: #e74c3c;
-        border-color: #f5b7b1;
-        color: #000;
+        /* background-color: #EA5455; */
+        color: #EA5455;
         border-radius: 0.35rem;
         padding: 0.375rem 0.75rem;
         font-size: 1rem;
         display: inline-block;
         vertical-align: middle;
+        font-weight: 700;
     }
 
     .custom-btn {
@@ -51,7 +51,8 @@
     .btn-pastel-yellow,
     .btn-pastel-blue,
     .btn-pastel-red,
-    .btn-pastel-green {
+    .btn-pastel-green,
+    .btn-pastel-violet {
         border-radius: 0.35rem;
         padding: 0.375rem 0.75rem;
         font-size: 1rem;
@@ -59,28 +60,36 @@
         vertical-align: middle;
     }
 
-    .btn-pastel-yellow {
-        background-color: #f1c40f;
+    .btn-pastel-violet {
+        background-color: #6C63FF;
         border-color: #f9e79f;
-        color: #000;
+        color: white;
     }
 
     .btn-pastel-blue {
-        background-color: #6a9bdc;
+        background-color: #4169E1;
         border-color: #85c1ae;
-        color: #000;
+        color: white;
     }
 
     .btn-pastel-red {
-        background-color: #e74c3c;
+        background-color: #D93737;
         border-color: #f5b7b1;
-        color: #000;
+        color: white;
     }
 
     .btn-pastel-green {
-        background-color: #a9dfbf;
+        background-color: #2ecc71;
         border-color: #a9dfbf;
-        color: #000;
+        color: white;
+    }
+
+    table .btn:hover,
+    table .btn:focus {
+        background-color: inherit !important;
+        color: inherit !important;
+        box-shadow: none !important;
+        border-color: inherit !important;
     }
 </style>
 @endpush
@@ -109,7 +118,7 @@
 @endif
 
 <div class="container-fluid px-4">
-    <h1 class="mt-4 mb-4 fw-bold"  style="font-size: 3rem;">Productos</h1>
+    <h1 class="mt-4 mb-4 fw-bold" style="font-size: 3rem;">Productos</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"> <a href="{{ route('panel') }}">Inicio</a></li>
         <li class="breadcrumb-item active">Productos</li>
@@ -117,7 +126,7 @@
 
     <div class="mb-4">
         <a href="{{ route('productos.create') }}">
-            <button type="button" class="btn btn-primary"> Añadir nuevo producto</button>
+            <button type="button" class="btn btn-primary" style="background-color: #5EA1E8; font-weight: bold ;color:white"> Añadir nuevo producto</button>
         </a>
     </div>
 
@@ -180,7 +189,7 @@
 
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                                 <form action="{{ route('productos.edit', $producto->id) }}" method="GET">
-                                    <button type="submit" class="btn btn-pastel-yellow">Editar</button>
+                                    <button type="submit" class="btn btn-pastel-violet">Editar</button>
                                 </form>
 
                                 <button type="button" class="btn btn-pastel-blue" data-bs-toggle="modal" data-bs-target="#verModal-{{ $producto->id }}">Ver</button>

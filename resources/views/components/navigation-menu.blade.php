@@ -80,8 +80,8 @@
                 </a>
                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ route('compras.index') }}">Ver</a>
-                        <a class="nav-link" href="{{ route('compras.create') }}">Crear</a>
+                        <a class="nav-link" href="{{ route('compras.index') }}">Ver compras</a>
+                        <a class="nav-link" href="{{ route('compras.create') }}">Crear compra</a>
                     </nav>
                 </div>
 
@@ -94,8 +94,8 @@
                 </a>
                 <div class="collapse" id="collapseVentas" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ route('ventas.index') }}">Ver</a>
-                        <a class="nav-link" href="{{ route('ventas.create') }}">Crear</a>
+                        <a class="nav-link" href="{{ route('ventas.index') }}">Ver ventas</a>
+                        <a class="nav-link" href="{{ route('ventas.create') }}">Crear venta</a>
                     </nav>
                 </div>
             </div>
