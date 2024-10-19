@@ -93,7 +93,7 @@
 
                         <!-- Boton para agregar -->
                         <div class="col-md-4 mb-2">
-                            <button id="btn_agregar" type="button" class="btn btn-primary mt-2 mb-2" style="background-color: #5EA1E8; font-weight: bold">Agregar</button>
+                            <button id="btn_agregar" type="button" class="btn btn-primary mt-2 mb-2" style="background-color: #007BA7; font-weight: bold ;color:white">Agregar</button>
                         </div>
 
                         <!-- tabla para detalle de venta-->
@@ -165,7 +165,7 @@
             <!-- venta -->
             <div class="col-md-4">
                 <div class="text-white p-3 mt-2" style="font-size: large; font-weight: bold; background-color: #212529">
-                    Datos generales
+                    Datos del comprador/a
                 </div>
 
                 <div class="p-3 border border-3 border-black">
@@ -232,7 +232,7 @@
 
 
                         <div class="col-md-12 mb-2">
-                            <button type="submit" id="guardar" class="btn btn-primary mt-2 mb-2" style="background-color: #5EA1E8; font-weight: bold ;color:white">Guardar</button>
+                            <button type="submit" id="guardar" class="btn btn-primary mt-2 mb-2" style="background-color: #007BA7; font-weight: bold ;color:white">Guardar</button>
 
                         </div>
 

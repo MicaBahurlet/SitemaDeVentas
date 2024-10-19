@@ -116,7 +116,7 @@
 
     <div class="mb-4">
         <a href="{{route('proveedores.create')}}">
-            <button type="button" class="btn btn-primary" style="background-color: #5EA1E8; font-weight: bold ;color:white">Añadir nuevo proveedor</button>
+            <button type="button" class="btn btn-primary" style="background-color: #007BA7; font-weight: bold ;color:white">Añadir nuevo proveedor</button>
         </a>
     </div>
 

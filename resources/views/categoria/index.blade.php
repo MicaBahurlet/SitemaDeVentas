@@ -45,7 +45,6 @@
 
     .btn-pastel-violet {
         background-color: #6C63FF;
-        border-color: #f9e79f;
         color: white;
     }
 
@@ -113,7 +112,7 @@
 
     <div class="mb-4">
         <a href="{{ route('categorias.create') }}">
-            <button type="button" class="btn btn-primary" style="background-color: #5EA1E8; font-weight: bold ;color:white"> Añadir nueva categoría</button>
+            <button type="button" class="btn btn-primary" style="background-color: #007BA7; font-weight: bold ;color:white"> Añadir nueva categoría</button>
         </a>
     </div>
 

@@ -9,10 +9,10 @@
         resize: none;
     }
 
-    /* Estilos para los selects */
+
     .bootstrap-select .dropdown-toggle {
-        background-color: white; /* Fondo blanco para el botón del select */
-        color: black; /* Color del texto del botón */
+        background-color: white;
+        color: black; 
         border-color: #d1d3e2;
     }
 
@@ -127,7 +127,7 @@
 
                     <!-- botones -->
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="submit" class="btn btn-primary" style="background-color: #007BA7; font-weight: bold ;color:white">Guardar</button>
                     </div>
                 </div>
 
