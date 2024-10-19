@@ -41,7 +41,6 @@
 
     .btn-pastel-green {
         background-color: #2ecc71;
-        border-color: #a9dfbf;
         color: #000;
     }
 

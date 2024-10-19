@@ -11,7 +11,7 @@
     .custom-badge {
         /* background-color: #2ecc71; */
         font-weight: 700;
-        color:#28C76F;
+        color:green;
         border-radius: 0.35rem;
         padding: 0.375rem 0.75rem;
         font-size: 1rem;
@@ -21,7 +21,7 @@
 
     .custom-badge-delete {
         /* background-color: #e74c3c; */
-        color: #EA5455;
+        color: red;
         font-weight: 700;
         border-radius: 0.35rem;
         padding: 0.375rem 0.75rem;
@@ -62,7 +62,6 @@
 
     .btn-pastel-green {
         background-color: #2ecc71;
-        border-color: #a9dfbf;
         color: white;
     }
 

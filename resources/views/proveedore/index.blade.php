@@ -15,7 +15,7 @@
     .custom-badge {
         /* background-color: #2ecc71; */
         font-weight: 700;
-        color: #28C76F;
+        color: green;
         border-radius: 0.35rem;
         padding: 0.375rem 0.75rem;
         font-size: 1rem;
@@ -24,7 +24,7 @@
     }
 
     .custom-badge-delete {
-        color: #EA5455;
+        color: red;
         border-radius: 0.35rem;
         padding: 0.375rem 0.75rem;
         font-size: 1rem;
@@ -65,7 +65,6 @@
 
     .btn-pastel-green {
         background-color: #2ecc71;
-        border-color: #a9dfbf;
         color: white;
     }
 
@@ -164,21 +163,21 @@
                         <span class="custom-badge-delete">Eliminado</span>
                         @endif
                     </td>
- 
-                    <td>
-                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
 
-                                <form action="{{ route('proveedores.edit', ['proveedore' => $item]) }}" method="GET">
-                                    <!-- @csrf -->
-                                    <button type="submit" class="btn btn-pastel-violet">Editar</button>
-                                </form>
-                                @if( $item->persona->estado == 1)
-                                <button type="button" class="btn btn-pastel-red" data-bs-toggle="modal" data-bs-target="#confirmModal-{{$item->id}}">Eliminar</button>
-                                @else
-                                <button type="button" class="btn btn-pastel-green" data-bs-toggle="modal" data-bs-target="#confirmModal-{{$item->id}}">Restaurar</button>
-                                @endif
-                            </div>
-                        <td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+
+                            <form action="{{ route('proveedores.edit', ['proveedore' => $item]) }}" method="GET">
+                                <!-- @csrf -->
+                                <button type="submit" class="btn btn-pastel-violet">Editar</button>
+                            </form>
+                            @if( $item->persona->estado == 1)
+                            <button type="button" class="btn btn-pastel-red" data-bs-toggle="modal" data-bs-target="#confirmModal-{{$item->id}}">Eliminar</button>
+                            @else
+                            <button type="button" class="btn btn-pastel-green" data-bs-toggle="modal" data-bs-target="#confirmModal-{{$item->id}}">Restaurar</button>
+                            @endif
+                        </div>
+                    <td>
 
 
 
