@@ -228,7 +228,7 @@
                         </div>
 
                         <!-- user -->
-                        <input type="hidden" name="user_id" id="user_id" value="1">
+                        <input type="hidden" name="user_id" id="user_id" value="{{ auth()->user()->id }}">
 
 
                         <div class="col-md-12 mb-2">

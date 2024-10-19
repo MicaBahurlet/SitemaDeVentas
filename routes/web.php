@@ -4,16 +4,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\categoriaController;
 use App\Http\Controllers\clienteController;
 use App\Http\Controllers\compraController;
+use App\Http\Controllers\homeController;
+use App\Http\Controllers\loginController;
+use App\Http\Controllers\logoutController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\marcaController;
 use App\Http\Controllers\proveedorController;
 use App\Http\Controllers\ventaController;
 
-Route::get('/', function () {
-    return view('template');
-});
 
-Route::view ('/panel', 'panel.index') ->name ('panel');
+Route::get('/', [homeController::class, 'index'])->name('panel');
 
 Route::view('/terminos', 'legal.terminos')->name('terminos');
 Route::view('/privacidad', 'legal.privacidad')->name('privacidad');
@@ -32,9 +32,9 @@ Route::resources([
 
 ]);
 
-Route::get('/login', function () {
-    return view('auth.login');
-});
+Route::get('/login',[loginController::class,'index'])->name('login');
+Route::post('/login',[loginController::class,'login']);
+Route::get('/logout',[logoutController::class,'logout'])->name('logout');
 
 // Si no esta autorizado para poder hacer la solicitud y ver recurso
 Route::get('/401', function () {

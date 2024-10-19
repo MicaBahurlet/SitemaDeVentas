@@ -3,10 +3,55 @@
 @section('title','Panel')
 
 @push('css')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+
+<style>
+    .btn-cerulean {
+        background-color: #007BA7;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .btn-cerulean:hover {
+        background-color: #005F7A;
+    }
+</style>
 @endpush
 
 @section('content')
+
+@if ( session('success') )
+<script>
+    let message = "{{ session('success') }}";
+    Swal.fire({
+        title: message,
+        showClass: {
+            popup: `
+      animate__animated
+      animate__fadeInUp
+      animate__faster
+    `
+        },
+        hideClass: {
+            popup: `
+      animate__animated
+      animate__fadeOutDown
+      animate__faster
+    `
+        },
+        customClass: {
+            confirmButton: 'btn-cerulean'
+        },
+        buttonsStyling: false
+    });
+</script>
+@endif
 
 <div class="container-fluid px-4">
     <h1 class="mt-4">Panel Principal</h1>
