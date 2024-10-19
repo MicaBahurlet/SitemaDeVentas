@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreVentaRequest;
 use App\Models\Cliente;
 use App\Models\Comprobante;
 use App\Models\Producto;
+use App\Models\Venta;
+use Exception;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -45,16 +48,59 @@ class ventaController extends Controller
             $query->where('estado', 1);
         }) ->get();
         $comprobantes = Comprobante::all();
-        
+
         return view('venta.create' , compact('productos' , 'clientes' , 'comprobantes'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreVentaRequest $request)
     {
-        //
+        try{
+            DB::beginTransaction();
+
+            //llenar mi tabla venta
+            $venta = Venta::create($request->validated());
+            //llenar mi tabla producto_venta
+            //1. recuperar los arrays de la request
+            $arrayProducto_id = $request->get('arrayidproducto');
+            $arrayCantidad = $request->get('arraycantidad');
+            $arrayPrecioVenta = $request->get('arrayprecioventa');
+            $arrayDescuento = $request->get('arraydescuento');
+
+            //2. realizar el llenado
+            $siseArray = count($arrayProducto_id);
+            $cont = 0;
+            while($cont < $siseArray){
+                $venta->productos()->syncWithoutDetaching([
+                    $arrayProducto_id[$cont] => [
+                        'cantidad' => $arrayCantidad[$cont],
+                        'descuento' => $arrayDescuento[$cont],
+                        'precio_venta' => $arrayPrecioVenta[$cont]
+                    ]
+                ]);
+
+                //actualizar el stock
+                $producto = Producto::find($arrayProducto_id[$cont]);
+                $stockActual = $producto->stock;
+                $cantidad = intval($arrayCantidad[$cont]);
+                
+                DB::table('productos')
+                ->where('id', $producto->id)
+                ->update([
+                    'stock' => $stockActual - $cantidad
+                ]);
+                $cont++;
+            }
+            DB::commit();
+
+        }catch(Exception $e){
+            DB::rollBack();
+
+        }
+
+        return redirect()->route('ventas.index')->with('success', 'Venta registrada');
     }
 
     /**

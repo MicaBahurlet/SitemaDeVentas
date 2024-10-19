@@ -226,6 +226,9 @@
                             <input type="hidden" name="fecha_hora" id="fecha_hora" value="{{ $fecha_hora }}">
                         </div>
 
+                        <!-- user -->
+                        <input type="hidden" name="user_id" id="user_id" value="1">
+
 
                         <div class="col-md-12 mb-2">
                             <button type="submit" class="btn btn-primary mt-2" id="guardar">Guardar</button>
