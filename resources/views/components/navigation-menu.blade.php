@@ -86,8 +86,8 @@
                 </div>
 
 
-                 <!-- Ventas -->
-                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseVentas" aria-expanded="false" aria-controls="collapseLayouts">
+                <!-- Ventas -->
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseVentas" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-money-bill-trend-up"></i></div>
                     Ventas
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -98,6 +98,23 @@
                         <a class="nav-link" href="{{ route('ventas.create') }}">Crear venta</a>
                     </nav>
                 </div>
+
+                <div class="sb-sidenav-menu-heading">Otros</div>
+
+                    <a class="nav-link" href=" {{ route('users.index') }}">
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></i></i></div>
+                        Usuarios
+                    </a>
+
+                    <a class="nav-link" href=" {{ route('roles.index') }}">
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-person-circle-plus"></i></i></i></div>
+                        Roles
+                    </a>
+                
+
+
+
+
             </div>
         </div>
         <div class="sb-sidenav-footer">

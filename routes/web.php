@@ -10,6 +10,8 @@ use App\Http\Controllers\logoutController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\marcaController;
 use App\Http\Controllers\proveedorController;
+use App\Http\Controllers\roleController;
+use App\Http\Controllers\userController;
 use App\Http\Controllers\ventaController;
 
 
@@ -27,7 +29,9 @@ Route::resources([
     'clientes' => clienteController::class,
     'proveedores' => proveedorController::class,
     'compras' => compraController::class,
-    'ventas' => ventaController::class
+    'ventas' => ventaController::class,
+    'users' => userController::class,
+    'roles' => roleController::class
 
 
 ]);

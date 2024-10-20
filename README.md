@@ -24,7 +24,7 @@ v 1.0
 <h3>🗂️ Others frameworks used: </h3>
 
 
-- Axios
+- SPATIE V.6.9
 - Dotenv
 - Font Awesome
 - Bootstrap-select
