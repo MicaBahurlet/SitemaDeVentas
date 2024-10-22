@@ -40,10 +40,8 @@
                     <label for="" class="form-label">Permisos para el rol</label>
                     @foreach ($permisos as $item)
                     <div class="form-check mb-2">
-                        <input class="form-check-input" type="checkbox" name="permission[]" value="{{$item->id}}" id="{{$item->id}}">
-                        <label class="form-check-label" for="{{$item->id}}">
-                            {{$item->name}}
-                        </label>
+                        <input type="checkbox" name="permission[]" id="{{$item->id}}" class="form-check-input" value="{{$item->id}}">
+                        <label for="{{$item->id}}" class="form-check-label">{{$item->name}}</label>
 
                     </div>
                     @endforeach

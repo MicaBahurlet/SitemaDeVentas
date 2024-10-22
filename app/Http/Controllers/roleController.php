@@ -35,19 +35,26 @@ class roleController extends Controller
     {
         $request->validate([
             'name' => 'required|unique:roles,name',
-            'permission' => 'required',
+            'permission' => 'required|array',
         ]);
+
+        // dd($request->all());
 
         try {
             DB::beginTransaction();
-            //crear rol
+            //Crear rol
             $rol = Role::create(['name' => $request->name]);
-            //asignar permisos al rol 
-            $rol->syncPermissions($request->permissions);
+            // dd($rol);
+
+            //Asignar permisos
+            // dd($request->permission);
+            $rol->syncPermissions(Permission::find($request->permission));
+            // $rol->syncPermissions($request->permission); antes tenia esto pero no funcionaba
 
             DB::commit();
         } catch (Exception $e) {
             DB::rollBack();
+            dd($e->getMessage());
         }
 
         return redirect()->route('roles.index')->with('success', 'Rol creado con exito');
@@ -77,21 +84,21 @@ class roleController extends Controller
 
     {
         $request->validate([
-            'name' => 'required|unique:roles,name,' . $role->id,
+            'name' => 'required|unique:roles,name,'.$role->id,
             'permission' => 'required'
         ]);
 
         try {
             DB::beginTransaction();
 
-            //Actualizar rol
-            Role::where('id', $role->id)
-                ->update([
-                    'name' => $request->name
-                ]);
+            // Actualizar el nombre del rol
+            Role::where('id',$role->id)
+            ->update([
+                'name' => $request->name
+            ]);
 
-            //Actualizar permisos
-            $role->syncPermissions($request->permission);
+            // Actualizar los permisos
+            $role->syncPermissions(Permission::find($request->permission));
 
             DB::commit();
         } catch (Exception $e) {
@@ -107,6 +114,8 @@ class roleController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Role::where('id', $id)->delete();
+        
+        return redirect()->route('roles.index')->with('success', 'Rol eliminado');
     }
 }
