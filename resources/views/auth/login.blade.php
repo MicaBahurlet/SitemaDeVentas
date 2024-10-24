@@ -7,22 +7,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="Login del sistema de ventas" />
     <meta name="author" content=" Micaela Bahurlet" />
-    <title>Login - SB Admin</title>
+    <title>Login -STOCKMASTER</title>
     <link href="{{asset('css/template.css')}}" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+
+    <style>
+        #layoutAuthentication_content {
+            background-image: url('{{ asset('imgStyles/7.jpg') }}');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            position: relative;
+
+        }
+    </style>
 </head>
 
 <body class="bg-primary">
     <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
             <main>
+
                 <div class="container mt-5">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-5">
-                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card" style="border-radius: 15px; width: 80%; margin: auto; padding: 20px">
+                        <div class="d-flex justify-content-around align-items-center">
+                            <h1 style="font-size: 2rem; font-weight: extrabold; text-shadow: 1px 1px 1px #000000">STOCK MASTER</h1>
+                            <button class="btn" style="width: 150px; background-color: #007BA7; font-weight: bold; border-color: grey; color: white">Primeros pasos</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 
+                <div class="container mt-4 text-center" style=" color:white; text-shadow: 3px 3px 5px #000000">
+                    <h1 style="font-size: 6rem; font-weight:extrabold">STOCK MASTER</h1>
+                </div> -->
+                <div class="container mt-5">
+                    <div class="row justify-content-center mt-5">
+                        <div class="col-lg-5 ">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5" style="border-radius: 15px;">
 
                                 <div class="card-header">
-                                    <h3 class="text-center font-weight-light my-4">Acceder al sistema</h3>
+                                    <h2 class="text-center font-weight-extrabold my-4 ">Acceder al sistema</h2>
                                 </div>
                                 <div class="card-body">
                                     @if ($errors->any())
@@ -49,7 +75,7 @@
                                             </div> -->
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                             <!-- <a class="small" href="password.html">Olvidaste tu contraseña?</a> -->
-                                            <button type="submit" class="btn btn-primary"><a style="color: white; text-decoration: none;">Iniciar sesión</a></button>
+                                            <button type="submit" class="btn" style="color: white; text-decoration: none; background-color: #007BA7; font-weight: bold;border-color:grey"><a>Iniciar sesión</a></button>
 
                                         </div>
                                     </form>
@@ -67,11 +93,11 @@
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                        <div class="text-muted">Copyright &copy; Micaela Bahurlet 2024</div>
                         <div>
-                            <a href="#">Privacy Policy</a>
-                            &middot;
-                            <a href="#">Terms &amp; Conditions</a>
+                            <a href="{{ route('privacidad') }}">Política de privacidad</href=>
+                                &middot;
+                                <a href="{{ route('terminos') }}">Términos &amp; Condiciones</a>
                         </div>
                     </div>
                 </div>

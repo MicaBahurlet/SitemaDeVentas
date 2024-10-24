@@ -1,4 +1,4 @@
-<h1>Sales Sistem</h1>
+<h1>StockMaster</h1>
 v 1.0
 
 

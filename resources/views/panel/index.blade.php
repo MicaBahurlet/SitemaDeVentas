@@ -59,29 +59,30 @@
         <li class="breadcrumb-item active">Panel Principal</li>
     </ol>
     <div class="row">
-    <!-- clientes card -->
+        <!-- productos card -->
     <div class="col-xl-3 col-md-6">
-        <div class="card  text-white  mb-4" style="background-color: #20c997; font-weight: bold">
+        <div class="card  text-white mb-4" style="background-color: #3D5ccc; font-weight: bold">
             <div class="card-body">
                 <div class="row">
                     <div class="col-8">
-                        <i class="fa-solid fa-people-group fa-lg mr-3"></i><span class="mr-2"> Clientes</span>
+                        <i class="fa-solid fa-cart-shopping fa-lg mr-3"></i><span class="mr-2"> Productos</span>
                     </div>
                     <div class="col-4">
                         <?php
-                        use App\Models\Cliente;
-                        $clientes = count(Cliente::all());
+                        use App\Models\Producto;
+                        $productos = count(Producto::all());
                         ?>
-                        <p class="fs-4 font-weight-bold">{{$clientes}}</p>
+                        <p class="fs-4 font-weight-bold">{{$productos}}</p>
                     </div>
                 </div>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
-                <a class="small text-white stretched-link" href="{{ route('clientes.index') }}">Ver más</a>
+                <a class="small text-white stretched-link" href="{{ route('productos.index') }}">Ver más</a>
                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
             </div>
         </div>
     </div>
+    
 
     <!-- Categorias card -->
     <div class="col-xl-3 col-md-6">
@@ -107,29 +108,31 @@
         </div>
     </div>
 
-    <!-- productos card -->
+    <!-- clientes card -->
     <div class="col-xl-3 col-md-6">
-        <div class="card  text-white mb-4" style="background-color: #3D5ccc; font-weight: bold">
+        <div class="card  text-white  mb-4" style="background-color: #20c997; font-weight: bold">
             <div class="card-body">
                 <div class="row">
                     <div class="col-8">
-                        <i class="fa-solid fa-cart-shopping fa-lg mr-3"></i><span class="mr-2"> Productos</span>
+                        <i class="fa-solid fa-people-group fa-lg mr-3"></i><span class="mr-2"> Clientes</span>
                     </div>
                     <div class="col-4">
                         <?php
-                        use App\Models\Producto;
-                        $productos = count(Producto::all());
+                        use App\Models\Cliente;
+                        $clientes = count(Cliente::all());
                         ?>
-                        <p class="fs-4 font-weight-bold">{{$productos}}</p>
+                        <p class="fs-4 font-weight-bold">{{$clientes}}</p>
                     </div>
                 </div>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
-                <a class="small text-white stretched-link" href="{{ route('productos.index') }}">Ver más</a>
+                <a class="small text-white stretched-link" href="{{ route('clientes.index') }}">Ver más</a>
                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
             </div>
         </div>
     </div>
+
+    
 
     <!-- Ventas card -->
     <div class="col-xl-3 col-md-6">

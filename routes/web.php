@@ -12,11 +12,18 @@ use App\Http\Controllers\marcaController;
 use App\Http\Controllers\profileController;
 use App\Http\Controllers\proveedorController;
 use App\Http\Controllers\roleController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\ventaController;
 
 
+// Route::get('/', function () {
+//     return redirect()->route('login');
+// })->middleware('guest'); 
+
+
 Route::get('/', [homeController::class, 'index'])->name('panel');
+Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 Route::view('/terminos', 'legal.terminos')->name('terminos');
 Route::view('/privacidad', 'legal.privacidad')->name('privacidad');
