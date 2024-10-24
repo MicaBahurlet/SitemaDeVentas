@@ -61,7 +61,7 @@
     <div class="row">
     <!-- clientes card -->
     <div class="col-xl-3 col-md-6">
-        <div class="card bg-primary text-white mb-4">
+        <div class="card  text-white  mb-4" style="background-color: #20c997; font-weight: bold">
             <div class="card-body">
                 <div class="row">
                     <div class="col-8">
@@ -85,7 +85,7 @@
 
     <!-- Categorias card -->
     <div class="col-xl-3 col-md-6">
-        <div class="card bg-primary text-white mb-4">
+        <div class="card text-white mb-4" style="background-color: #17a2b8; font-weight: bold">
             <div class="card-body">
                 <div class="row">
                     <div class="col-8">
@@ -109,7 +109,7 @@
 
     <!-- productos card -->
     <div class="col-xl-3 col-md-6">
-        <div class="card bg-primary text-white mb-4">
+        <div class="card  text-white mb-4" style="background-color: #3D5ccc; font-weight: bold">
             <div class="card-body">
                 <div class="row">
                     <div class="col-8">
@@ -133,7 +133,7 @@
 
     <!-- Ventas card -->
     <div class="col-xl-3 col-md-6">
-        <div class="card bg-primary text-white mb-4">
+        <div class="card text-white mb-4" style="background-color: #9B4FC3; font-weight: bold">
             <div class="card-body">
                 <div class="row">
                     <div class="col-8">

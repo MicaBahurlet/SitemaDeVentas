@@ -8,15 +8,30 @@
 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
 
 <style>
+    table .btn {
+        background-color: #ccc;
+        /* Color gris por defecto */
+        color: #333;
+        /* Color de texto gris oscuro */
+        border-color: #bbb;
+        /* Borde gris */
+        font-weight: bold;
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    }
+
+
+
     .custom-badge {
         /* background-color: #28C76F; */
         font-weight: 700;
         color: green;
+        border-color: #a9dfbf;
         border-radius: 0.35rem;
         padding: 0.375rem 0.75rem;
         font-size: 1rem;
         display: inline-block;
         vertical-align: middle;
+
     }
 
     .custom-badge-delete {
@@ -30,65 +45,29 @@
         font-weight: 700;
     }
 
-    .custom-btn {
-        background-color: #d3d3d3;
-        color: #000;
-        border: none;
-        border-radius: 0.35rem;
-        padding: 0.375rem 0.75rem;
-        font-size: 1rem;
-        /* cursor: pointer; */
-        display: inline-block;
-        /* transition: background-color 0.3s ease; */
-        width: auto;
-        margin-bottom: 5px;
+    /* Colores en hover, usando tus clases existentes */
+    table .btn-pastel-violet:hover {
+        background-color: #6C63FF !important;
+        color: white !important;
+        border-color: #6C63FF !important;
     }
 
-    /* .custom-btn:hover {
-        background-color: #5a6268;
-    } */
-
-    .btn-pastel-yellow,
-    .btn-pastel-blue,
-    .btn-pastel-red,
-    .btn-pastel-green,
-    .btn-pastel-violet {
-        border-radius: 0.35rem;
-        padding: 0.375rem 0.75rem;
-        font-size: 1rem;
-        display: inline-block;
-        vertical-align: middle;
+    table .btn-pastel-blue:hover {
+        background-color: #6a9bdc !important;
+        color: white !important;
+        border-color: #6a9bdc !important;
     }
 
-    .btn-pastel-violet {
-        background-color: #6C63FF;
-        border-color: #f9e79f;
-        color: white;
+    table .btn-pastel-red:hover {
+        background-color: #D93737 !important;
+        color: white !important;
+        border-color: #D93737 !important;
     }
 
-    .btn-pastel-blue {
-        background-color: #4169E1;
-        border-color: #85c1ae;
-        color: white;
-    }
-
-    .btn-pastel-red {
-        background-color: #D93737;
-        border-color: #f5b7b1;
-        color: white;
-    }
-
-    .btn-pastel-green {
-        background-color: #2ecc71;
-        color: white;
-    }
-
-    table .btn:hover,
-    table .btn:focus {
-        background-color: inherit !important;
-        color: inherit !important;
-        box-shadow: none !important;
-        border-color: inherit !important;
+    table .btn-pastel-green:hover {
+        background-color: #2ecc71 !important;
+        color: white !important;
+        border-color: #2ecc71 !important;
     }
 </style>
 @endpush
@@ -126,13 +105,13 @@
     @can ('crear-producto')
     <div class="mb-4">
         <a href="{{ route('productos.create') }}">
-            <button type="button" class="btn btn-primary" style="background-color: #007BA7; font-weight: bold ;color:white"> Añadir nuevo producto</button>
+            <button type="button" class="btn btn-primary" style="background-color: #007BA7; font-weight: bold ;color:white;border-color:grey"> Añadir nuevo producto</button>
         </a>
     </div>
     @endcan
 
     <div class="card mb-4">
-        <div class="card-header">
+        <div class="card-header" style="background-color: #007BA7; font-weight: bold ;color:white; padding: 10px">
             <i class="fas fa-table me-1"></i>
             Tabla productos
         </div>

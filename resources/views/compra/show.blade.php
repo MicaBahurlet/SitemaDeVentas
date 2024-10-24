@@ -9,7 +9,7 @@
 @section ('content')
 
 <div class="container-fluid px-4">
-    <h1 class="mt-4 mb-4 fw-bold" style="font-size: 3rem;">Ver compra</h1>
+    <h1 class="mt-4 mb-4 fw-bold" style="font-size: 3rem;">Detalles de compra</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"><a href="{{ route('panel') }}">Inicio</a></li>
         <li class="breadcrumb-item"><a href="{{ route('compras.index') }}">Compras</a></li>
@@ -58,8 +58,8 @@
         </div>
 
         <!-- Tabla -->
-        <div class="card mb-4">
-            <div class="card-header">
+        <div class=" mb-4">
+            <div class="card-header" style="background-color: #007BA7; font-weight: bold ;color:white; padding: 10px">
                 <i class="fas fa-table me-1"></i>
                 Tabla de detalle de la compra
             </div>
