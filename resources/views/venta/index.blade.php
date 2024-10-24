@@ -164,7 +164,9 @@
                                         Ver
                                     </button>
                                 </form>
+                                @can ('eliminar-venta')
                                 <button type="button" class="btn btn-pastel-red" data-bs-toggle="modal" data-bs-target="#confirmModal-{{ $item->id }}" >Eliminar</button>
+                                @endcan
                             </div>
                         </td>
                     </tr>

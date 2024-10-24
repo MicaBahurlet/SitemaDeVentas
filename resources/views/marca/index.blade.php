@@ -105,12 +105,13 @@
         <li class="breadcrumb-item"><a href="{{ route('panel')}}">Inicio</a></li>
         <li class="breadcrumb-item active">Marcas</li>
     </ol>
-
+    @can ('crear-marca')
     <div class="mb-4">
         <a href="{{ route('marcas.create') }}">
             <button type="button" class="btn btn-primary" style="background-color: #007BA7; font-weight: bold ;color:white"> Añadir nueva marca</button>
         </a>
     </div>
+    @endcan
 
     <div class="card mb-4">
         <div class="card-header">
@@ -141,14 +142,20 @@
                         </td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+
+                                @can ('editar-marca')
                                 <form action="{{ route('marcas.edit', $item->id) }}" method="GET">
                                     <button type="submit" class="btn btn-pastel-violet">Editar</button>
                                 </form>
+                                @endcan
+
+                                @can ('eliminar-marca')
                                 @if( $item->caracteristica->estado == 1)
                                 <button type="button" class="btn btn-pastel-red" data-bs-toggle="modal" data-bs-target="#confirmModal-{{ $item->id }}">Eliminar</button>
                                 @else
                                 <button type="button" class="btn btn-pastel-green" data-bs-toggle="modal" data-bs-target="#confirmModal-{{ $item->id }}">Restaurar</button>
                                 @endif
+                                @endcan
                             </div>
                         </td>
                     </tr>

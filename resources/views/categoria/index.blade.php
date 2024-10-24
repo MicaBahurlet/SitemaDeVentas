@@ -17,7 +17,7 @@
         font-size: 1rem;
         display: inline-block;
         vertical-align: middle;
-        
+
     }
 
     .custom-badge-delete {
@@ -72,8 +72,6 @@
         box-shadow: none !important;
         border-color: inherit !important;
     }
-
-
 </style>
 
 
@@ -109,11 +107,13 @@
         <li class="breadcrumb-item active">Categorías</li>
     </ol>
 
+    @can ('crear-categoria')
     <div class="mb-4">
         <a href="{{ route('categorias.create') }}">
             <button type="button" class="btn btn-primary" style="background-color: #007BA7; font-weight: bold ;color:white"> Añadir nueva categoría</button>
         </a>
     </div>
+    @endcan
 
     <div class="card mb-4">
         <div class="card-header">
@@ -149,16 +149,21 @@
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
 
+                                @can ('editar-categoria')
                                 <form action="{{ route('categorias.edit', $categoria->id) }}" method="GET">
                                     <!-- @csrf -->
                                     <button type="submit" class="btn btn-pastel-violet">Editar</button>
 
                                 </form>
+                                @endcan
+
+                                @can ('eliminar-categoria')
                                 @if( $categoria->caracteristica->estado == 1)
                                 <button type="button" class="btn btn-pastel-red" data-bs-toggle="modal" data-bs-target="#confirmModal-{{ $categoria->id }}">Eliminar</button>
                                 @else
                                 <button type="button" class="btn btn-pastel-green" data-bs-toggle="modal" data-bs-target="#confirmModal-{{ $categoria->id }}">Restaurar</button>
                                 @endif
+                                @endcan
                             </div>
                         <td>
                     </tr>

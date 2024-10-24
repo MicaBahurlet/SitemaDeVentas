@@ -168,11 +168,13 @@
                                     <!-- @csrf -->
                                     <button type="submit" class="btn btn-pastel-violet">Editar</button>
                                 </form>
+                                @can ('eliminar-cliente')
                                 @if( $item->persona->estado == 1)
                                 <button type="button" class="btn btn-pastel-red" data-bs-toggle="modal" data-bs-target="#confirmModal-{{$item->id}}">Eliminar</button>
                                 @else
                                 <button type="button" class="btn btn-pastel-green" data-bs-toggle="modal" data-bs-target="#confirmModal-{{$item->id}}">Restaurar</button>
                                 @endif
+                                @endcan
                             </div>
                         <td>
                     </tr>

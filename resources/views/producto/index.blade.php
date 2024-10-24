@@ -123,11 +123,13 @@
         <li class="breadcrumb-item active">Productos</li>
     </ol>
 
+    @can ('crear-producto')
     <div class="mb-4">
         <a href="{{ route('productos.create') }}">
             <button type="button" class="btn btn-primary" style="background-color: #007BA7; font-weight: bold ;color:white"> Añadir nuevo producto</button>
         </a>
     </div>
+    @endcan
 
     <div class="card mb-4">
         <div class="card-header">
@@ -187,17 +189,24 @@
                             </div> -->
 
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+
+                            @can ('editar-producto')
                                 <form action="{{ route('productos.edit', $producto->id) }}" method="GET">
                                     <button type="submit" class="btn btn-pastel-violet">Editar</button>
                                 </form>
+                            @endcan
 
+                                @can ('ver-producto')
                                 <button type="button" class="btn btn-pastel-blue" data-bs-toggle="modal" data-bs-target="#verModal-{{ $producto->id }}">Ver</button>
+                                @endcan
 
+                                @can ('eliminar-producto')
                                 @if( $producto->estado == 1)
                                 <button type="button" class="btn btn-pastel-red" data-bs-toggle="modal" data-bs-target="#confirmModal-{{ $producto->id }}">Eliminar</button>
                                 @else
                                 <button type="button" class="btn btn-pastel-green" data-bs-toggle="modal" data-bs-target="#confirmModal-{{ $producto->id }}">Restaurar</button>
                                 @endif
+                                @endcan
                             </div>
 
                         </td>
