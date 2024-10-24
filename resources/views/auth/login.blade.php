@@ -30,7 +30,7 @@
             <main>
 
                 <div class="container mt-5">
-                    <div class="card" style="border-radius: 15px; width: 80%; margin: auto; padding: 20px">
+                    <div class="card" style="border-radius: 15px; width: 80%; margin: auto; padding: 20px; box-shadow: 0px 8px 16px #000000">
                         <div class="d-flex justify-content-around align-items-center">
                             <h1 style="font-size: 2rem; font-weight: extrabold; text-shadow: 1px 1px 1px #000000">STOCK MASTER</h1>
                             <button class="btn" style="width: 150px; background-color: #007BA7; font-weight: bold; border-color: grey; color: white">Primeros pasos</button>
@@ -45,7 +45,7 @@
                 <div class="container mt-5">
                     <div class="row justify-content-center mt-5">
                         <div class="col-lg-5 ">
-                            <div class="card shadow-lg border-0 rounded-lg mt-5" style="border-radius: 15px;">
+                            <div class="card border-0 rounded-lg mt-5" style="border-radius: 15px; box-shadow: 0px 8px 16px #000000">
 
                                 <div class="card-header">
                                     <h2 class="text-center font-weight-extrabold my-4 ">Acceder al sistema</h2>
