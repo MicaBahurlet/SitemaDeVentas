@@ -49,7 +49,7 @@ class roleController extends Controller
             //Asignar permisos
             // dd($request->permission);
             $rol->syncPermissions(Permission::find($request->permission));
-            // $rol->syncPermissions($request->permission); antes tenia esto pero no funcionaba
+            // $rol->syncPermissions($request->permission); antes tenia esto pero no funcionaba ya que no le estaba indicandoq que puntualmente queria los id. 
 
             DB::commit();
         } catch (Exception $e) {
@@ -115,7 +115,7 @@ class roleController extends Controller
     public function destroy(string $id)
     {
         Role::where('id', $id)->delete();
-        
+
         return redirect()->route('roles.index')->with('success', 'Rol eliminado');
     }
 }
