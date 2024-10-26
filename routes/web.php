@@ -12,7 +12,7 @@ use App\Http\Controllers\marcaController;
 use App\Http\Controllers\profileController;
 use App\Http\Controllers\proveedorController;
 use App\Http\Controllers\roleController;
-use App\Http\Controllers\SearchController;
+// use App\Http\Controllers\SearchController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\ventaController;
 
@@ -21,9 +21,11 @@ use App\Http\Controllers\ventaController;
 //     return redirect()->route('login');
 // })->middleware('guest'); 
 
+// pasar ruta de inicio de sesion al principio?
+
 
 Route::get('/', [homeController::class, 'index'])->name('panel');
-Route::get('/search', [SearchController::class, 'search'])->name('search');
+// Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 Route::view('/terminos', 'legal.terminos')->name('terminos');
 Route::view('/privacidad', 'legal.privacidad')->name('privacidad');

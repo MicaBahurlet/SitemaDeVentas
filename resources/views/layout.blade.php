@@ -406,7 +406,7 @@
         <div class="modal-content">
           <div class="modal-header bg-gradient-primary-to-secondary p-4">
             <h5 class="modal-title font-alt text-white" id="feedbackModalLabel">
-              Send feedback
+              Contactate con nosotros
             </h5>
             <button
               class="btn-close btn-close-white"
@@ -433,9 +433,9 @@
                   placeholder="Enter your name..."
                   data-sb-validations="required"
                 />
-                <label for="name">Full name</label>
+                <label for="name">Nombre y apellido</label>
                 <div class="invalid-feedback" data-sb-feedback="name:required">
-                  A name is required.
+                  El nombre es requerido.
                 </div>
               </div>
               <!-- Email address input-->
@@ -447,26 +447,12 @@
                   placeholder="name@example.com"
                   data-sb-validations="required,email"
                 />
-                <label for="email">Email address</label>
+                <label for="email">Email</label>
                 <div class="invalid-feedback" data-sb-feedback="email:required">
-                  An email is required.
+                  El email es requerido.
                 </div>
                 <div class="invalid-feedback" data-sb-feedback="email:email">
-                  Email is not valid.
-                </div>
-              </div>
-              <!-- Phone number input-->
-              <div class="form-floating mb-3">
-                <input
-                  class="form-control"
-                  id="phone"
-                  type="tel"
-                  placeholder="(123) 456-7890"
-                  data-sb-validations="required"
-                />
-                <label for="phone">Phone number</label>
-                <div class="invalid-feedback" data-sb-feedback="phone:required">
-                  A phone number is required.
+                  El email es inválido.
                 </div>
               </div>
               <!-- Message input-->
@@ -479,12 +465,12 @@
                   style="height: 10rem"
                   data-sb-validations="required"
                 ></textarea>
-                <label for="message">Message</label>
+                <label for="message">Mensaje</label>
                 <div
                   class="invalid-feedback"
                   data-sb-feedback="message:required"
                 >
-                  A message is required.
+                  El campo mensaje es requerido.
                 </div>
               </div>
               <!-- Submit success message-->
@@ -507,7 +493,7 @@
               <!-- an error submitting the form-->
               <div class="d-none" id="submitErrorMessage">
                 <div class="text-center text-danger mb-3">
-                  Error sending message!
+                  Error al enviar mensaje!
                 </div>
               </div>
               <!-- Submit Button-->
