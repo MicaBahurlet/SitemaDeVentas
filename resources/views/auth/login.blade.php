@@ -14,7 +14,7 @@
 
     <style>
         #layoutAuthentication_content {
-            background-image: url('{{ asset('imgStyles/7.jpg') }}');
+            background-image: url('{{asset('img/7.jpg')}}');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -33,7 +33,9 @@
                     <div class="card" style="border-radius: 15px; width: 80%; margin: auto; padding: 20px; box-shadow: 0px 8px 16px #000000">
                         <div class="d-flex justify-content-around align-items-center">
                             <h1 style="font-size: 2rem; font-weight: extrabold; text-shadow: 1px 1px 1px #000000">STOCK MASTER</h1>
-                            <button class="btn" style="width: 150px; background-color: #007BA7; font-weight: bold; border-color: grey; color: white">Primeros pasos</button>
+                            <a href="{{ route('primerosPasos') }}" class="btn" style="width: 150px; background-color: #007BA7; font-weight: bold; border-color: grey; color: white; display: inline-block; text-align: center; text-decoration: none;">
+                                Primeros pasos
+                            </a>
                         </div>
                     </div>
                 </div>

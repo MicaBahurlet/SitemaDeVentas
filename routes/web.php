@@ -27,6 +27,7 @@ Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 Route::view('/terminos', 'legal.terminos')->name('terminos');
 Route::view('/privacidad', 'legal.privacidad')->name('privacidad');
+Route::view('/primerosPasos', 'primerosPasos.index')->name('primerosPasos');
 
 
 
