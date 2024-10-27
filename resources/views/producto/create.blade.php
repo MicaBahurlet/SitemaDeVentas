@@ -127,7 +127,7 @@
 
                     <!-- botones -->
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary" style="background-color: #007BA7; font-weight: bold ;color:white">Guardar</button>
+                        <button type="submit" class="btn" style="width: 130px; background-color: #007BA7; border-color: grey; color: white; display: inline-block; text-align: center; text-decoration: none; cursor: pointer">Guardar</button>
                     </div>
                 </div>
 

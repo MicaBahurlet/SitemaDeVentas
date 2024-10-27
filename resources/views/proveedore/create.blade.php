@@ -85,7 +85,7 @@
 
             </div>
             <div class="card-footer ">
-                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="submit" class="btn" style="width: 130px; background-color: #007BA7; border-color: grey; color: white; display: inline-block; text-align: center; text-decoration: none; cursor: pointer">Guardar</button>
             </div>
         </form>
     </div>

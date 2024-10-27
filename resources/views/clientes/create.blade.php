@@ -63,7 +63,7 @@
                     </div>
 
                     <!-- documento -->
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-2">
                         <label for="documento_id" class="form-label"> Tipo de documento:</label>
                         <select name="documento_id" id="documento_id" class="form-select">
                             <option value="" selected disabled>Seleccione una opción</option>
@@ -89,8 +89,8 @@
                 </div>
 
 
-                <div class="col-12 ">
-                    <button type="submit" class="btn btn-primary">Guardar</button>
+                <div class="col-12 mt-3">
+                    <button type="submit" class="btn" style="width: 130px; background-color: #007BA7; border-color: grey; color: white; display: inline-block; text-align: center; text-decoration: none; cursor: pointer">Guardar</button>
 
                 </div>
 

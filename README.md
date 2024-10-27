@@ -38,3 +38,10 @@ v 1.0
 Dashboard: 
 
 <img src="#" alt="Landing Page" style="max-width: 400px; border-radius: 10px;">
+
+
+contrast: 
+
+#164B83
+
+principal: #007BA7

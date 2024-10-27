@@ -28,8 +28,8 @@
       id="mainNav"
     >
       <div class="container px-5">
-        <a class="navbar-brand fw-bol" style="font-weight: 800" href="#page-top"
-          >STOCK MASTER</a
+        <a class="navbar-brand fw-bol" href="#page-top"
+          ><img src="{{asset('img/STOCKMASTERlogo.png')}}" alt="LogoStockMaster" style="width: 190px"></a
         >
         <button
           class="navbar-toggler"
@@ -60,7 +60,7 @@
             </li>
           </ul>
           <button
-            class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0"
+            class="btn btn-primary  px-3 mb-2 mb-lg-0"
             data-bs-toggle="modal"
             data-bs-target="#feedbackModal"
           >
@@ -82,7 +82,7 @@
             <div class="mb-5 mb-lg-0 text-center text-lg-start">
               <h1 class="display-1 lh-1 mb-3">GESTIONA TU NEGOCIO.</h1>
               <p class="lead fw-normal text-muted mb-5">
-                Software de trakeo de productos, control de ventas y ventas.
+                La App para el trakeo de productos, control de compras y ventas.
               </p>
             </div>
           </div>
@@ -368,7 +368,7 @@
             Gestioná ya.
           </h2>
           <a
-            class="btn btn-outline-light py-3 px-4 rounded-pill"
+            class="btn btn-outline-light py-3 px-4"
             href="#"
             target="_blank"
             >Contactate</a
@@ -380,20 +380,18 @@
 
 
     <!-- Footer-->
-    <footer class="bg-black text-center py-5">
-      <div class="container px-5">
-        <div class="text-white-50 small">
-          <div class="mb-2">
-            &copy; STOCK MASTER 2024, todos los derechos reservados.
+    <footer class="py-4 bg-light mt-auto">
+      <div class="container-fluid px-4">
+          <div class="d-flex align-items-center justify-content-between small">
+              <div class="text-muted">Copyright &copy; Micaela Bahurlet 2024</div>
+              <div>
+                  <a href="{{ route('privacidad') }}" style="color: #808080;">Política de privacidad</href=>
+                      &middot;
+                      <a href="{{ route('terminos') }}" style="color: #808080;">Términos &amp; Condiciones</a>
+              </div>
           </div>
-          <!-- <a href="#!">Privacy</a>
-                    <span class="mx-1">&middot;</span>
-                    <a href="#!">Terms</a>
-                    <span class="mx-1">&middot;</span>
-                    <a href="#!">FAQ</a> -->
-        </div>
       </div>
-    </footer>
+  </footer>
     <!-- Feedback Modal-->
     <div
       class="modal fade"
