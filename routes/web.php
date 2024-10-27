@@ -35,6 +35,7 @@ Route::get('/panel', [homeController::class, 'index'])->name('panel');
 Route::view('/terminos', 'legal.terminos')->name('terminos');
 Route::view('/privacidad', 'legal.privacidad')->name('privacidad');
 Route::view('/primerosPasos', 'primerosPasos.index')->name('primerosPasos');
+Route::view('/instrucciones', 'instrucciones.instrucciones')->name('instrucciones');
 
 
 

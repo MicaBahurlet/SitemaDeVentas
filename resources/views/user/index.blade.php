@@ -93,6 +93,7 @@
             <li class="breadcrumb-item"> <a href="{{ route('panel') }}">Inicio</a></li>
             <li class="breadcrumb-item active">Usuarios</li>
         </ol>
+    
 
         <div class="mb-4">
             <a href="{{ route('users.create') }}">
