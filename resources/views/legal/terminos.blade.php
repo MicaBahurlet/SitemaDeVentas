@@ -1,4 +1,4 @@
-@extends('template')
+@extends('legal')
 
 @section('title', 'Términos y Condiciones')
 

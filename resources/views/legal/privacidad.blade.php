@@ -1,9 +1,9 @@
-@extends('template')
+@extends('legal')
 
 @section('title', 'Política de Privacidad')
 
 @section('content')
-<div class="container my-5" style="max-width: 1000px;">
+<div class="container my-5" style="max-width: 1000px; margin-top: 100px;">
     <h1 class="fw-bold mb-5">Política de Privacidad</h1>
 
     <h3>1. Introducción</h3>
@@ -38,4 +38,5 @@
     <h3>9. Contacto</h3>
     <p>Para dudas o consultas, contáctanos a: <strong>micabahurletgo@gmail.com</strong></p>
 </div>
+
 @endsection

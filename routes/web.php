@@ -15,17 +15,22 @@ use App\Http\Controllers\roleController;
 // use App\Http\Controllers\SearchController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\ventaController;
+use Illuminate\Support\Facades\Auth;
 
 
-// Route::get('/', function () {
-//     return redirect()->route('login');
-// })->middleware('guest'); 
+Route::get('/', function () {
+    // si el usuario actual esta autenticado
+    if (Auth::check()) {
+        return redirect()->route('panel');
+    } else {
+        return redirect()->route('login');
+    }
+});
 
-// pasar ruta de inicio de sesion al principio?
+
+Route::get('/panel', [homeController::class, 'index'])->name('panel');
 
 
-Route::get('/', [homeController::class, 'index'])->name('panel');
-// Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 Route::view('/terminos', 'legal.terminos')->name('terminos');
 Route::view('/privacidad', 'legal.privacidad')->name('privacidad');
@@ -47,7 +52,7 @@ Route::resources([
 
 ]);
 
-Route::get('/login',[loginController::class,'index'])->name('login');
+Route::get('/login',[loginController::class,'index'])->name('login')->middleware('guest');
 Route::post('/login',[loginController::class,'login']);
 Route::get('/logout',[logoutController::class,'logout'])->name('logout');
 
