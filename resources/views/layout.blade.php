@@ -55,7 +55,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link me-lg-3" href="#primerosPasos"
-                >Primeros Pasos</a
+                >Quiero StockMaster</a
               >
             </li>
           </ul>
@@ -122,6 +122,7 @@
                   height="84.05"
                   rx="42.03"
                   transform="translate(120.42 -49.88) rotate(45)"
+                  fill="#007BA7"
                 ></rect>
                 <rect
                   x="-32.54"
@@ -130,13 +131,14 @@
                   height="84.05"
                   rx="42.03"
                   transform="translate(-49.88 120.42) rotate(-45)"
+                  fill="#007BA7"
                 ></rect></svg
               ><svg
                 class="shape-2 d-none d-sm-block"
                 viewBox="0 0 100 100"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <circle cx="50" cy="50" r="50"></circle>
+                <circle cx="50" cy="50" r="50" fill="#007BA7"></circle>
               </svg>
               <div class="device-wrapper">
                 <div
@@ -201,8 +203,7 @@
                     ></i>
                     <h3 class="font-alt">Clientes y Proveedores</h3>
                     <p class="text-muted mb-0">
-                      En tu gestor contas con la <br />
-                      información de tallada de quién te compra y quién te
+                      Conta con la información de tallada de quién te compra y quién te
                       abastece
                     </p>
                   </div>
@@ -230,8 +231,8 @@
                     ></i>
                     <h3 class="font-alt">Productos</h3>
                     <p class="text-muted mb-0">
-                      Stokea tus productos llevando los datos de cada uno,
-                      imágenes, fechas, categorias,etc.
+                      Stokea tus productos cargando información,
+                      imágenes, fechas, categorias, marcas, etc.
                     </p>
                   </div>
                 </div>
@@ -251,8 +252,8 @@
                     id="circleGradient"
                     gradientTransform="rotate(45)"
                   >
-                    <stop class="gradient-start-color" offset="0%"></stop>
-                    <stop class="gradient-end-color" offset="100%"></stop>
+                  <stop offset="0%" stop-color="#004f73"></stop>
+                  <stop offset="100%" stop-color="#007BA7"></stop>
                   </linearGradient>
                 </defs>
                 <circle cx="50" cy="50" r="50"></circle></svg
@@ -268,6 +269,7 @@
                   height="84.05"
                   rx="42.03"
                   transform="translate(120.42 -49.88) rotate(45)"
+                  fill="#007BA7"
                 ></rect>
                 <rect
                   x="-32.54"
@@ -276,6 +278,7 @@
                   height="84.05"
                   rx="42.03"
                   transform="translate(-49.88 120.42) rotate(-45)"
+                  fill="#007BA7"
                 ></rect></svg
               ><svg
                 class="shape-2 d-none d-sm-block"
@@ -334,32 +337,9 @@
       </div>
     </section>
 
-    <aside class=" bg-gradient-primary-to-secondary" id="primerosPasos">
-        <div class="container px-5">
-          <div class="row gx-5 justify-content-center">
-            <div class="col-xl-8">
-              <div class="h2 fs-1 text-white mb-4">
-                Primeros Pasos
-              </div>
-              <div class="text-white lista-pasos" >
-                <ul class="lista-grande">
-                    <li>Contactate con nuetro equipo</li>
-                    <li>Recibí un instructivo de como utilizar nuestra aplicación</li>
-                    <li>Establece desde tu cuenta de administrador roles, en caso de que tengas empleados/as y asigná permisos para mantener la seguridad de tu negocio</li>
-                    <li>Carga tus categorías y marcas</li>
-                    <li>Traquea tus productos</li>
-                    <li>Carga tus clientes con sus datos más relevantes</li>
-                    <li>Carga tus proveedores</li>
-                    <li>Comenzá a registrar tus compras y ventas</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </aside>
 
     <!-- Call to action section-->
-    <section class="cta">
+    <section class="cta" id="primerosPasos" >
       <div class="cta-content">
         <div class="container px-5">
           <h2 class="text-white display-1 lh-1 mb-4">
