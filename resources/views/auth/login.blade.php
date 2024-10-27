@@ -24,6 +24,36 @@
         .img-nav{
             width: 250px;
         }
+        .btn-firstSteps{
+            width: 160px; 
+            background-color: #007BA7; 
+            font-weight: bold; 
+            border-color: grey; 
+            color: white; 
+            display: inline-block; 
+            text-align: center; 
+            text-decoration: none; 
+            cursor: pointer
+        }
+        .btn-firstSteps:hover{
+            background-color: #164B83;
+            color: white;
+        }
+        .btn-login{
+            width: 160px; 
+            background-color: #007BA7; 
+            font-weight: bold; 
+            border-color: grey; 
+            color: white; 
+            display: inline-block; 
+            text-align: center; 
+            text-decoration: none; 
+            cursor: pointer
+        }
+        .btn-login:hover{
+            background-color: #164B83;
+            color: white;
+        }
     </style>
 </head>
 
@@ -37,7 +67,7 @@
                         <div class="d-flex justify-content-around align-items-center">
                             {{-- <h1 style="font-size: 2rem; font-weight: 700; text-shadow: 1px 1px 1px #000000">STOCK MASTER</h1> --}}
                             <img src="{{asset('img/STOCKMASTERlogo.png')}}" alt="LogoStockMaster" class="img-nav">
-                            <a href="{{ route('primerosPasos') }}" class="btn  px-3 mb-2 mb-lg-0 " style="width: 160px; background-color: #007BA7; font-weight: bold; border-color: grey; color: white; display: inline-block; text-align: center; text-decoration: none; cursor: pointer">
+                            <a href="{{ route('primerosPasos') }}" class="btn  px-3 mb-2 mb-lg-0 btn-firstSteps" >
                                 Primeros pasos
                             </a>
                         </div>
@@ -81,7 +111,7 @@
                                             </div> -->
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                             <!-- <a class="small" href="password.html">Olvidaste tu contraseña?</a> -->
-                                            <button type="submit" class="btn px-3 mb-2 mb-lg-0" style="color: white; text-decoration: none; background-color: #007BA7; font-weight: bold;border-color:grey; cursor: pointer"><a>Iniciar sesión</a></button>
+                                            <button type="submit" class="btn px-3 mb-2 mb-lg-0 btn-login" ><a>Iniciar sesión</a></button>
 
                                         </div>
                                     </form>

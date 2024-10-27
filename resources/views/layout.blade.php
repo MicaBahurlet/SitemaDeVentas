@@ -147,7 +147,7 @@
                 >
                   <div class="screen">
                     <img
-                      src="./img/ScreenPrincipal.png"
+                      src="./img/Beneficios.png"
                       alt="Contenido de la pantalla"
                       style="width: 100%; height: 100%"
                     />
@@ -296,7 +296,7 @@
                     <!-- * * This can be a video, image, or just about anything else.-->
                     <!-- * * Set the max width of your media to 100% and the height to-->
                     <!-- * * 100% like the demo example below.-->
-                    <img src="./img/Beneficios.png" alt="" />
+                    <img src="./img/ScreenPrincipal.png" alt="" />
                   </div>
                 </div>
               </div>
@@ -414,15 +414,7 @@
             ></button>
           </div>
           <div class="modal-body border-0 p-4">
-            <!-- * * * * * * * * * * * * * * *-->
-            <!-- * * SB Forms Contact Form * *-->
-            <!-- * * * * * * * * * * * * * * *-->
-            <!-- This form is pre-integrated with SB Forms.-->
-            <!-- To make this form functional, sign up at-->
-            <!-- https://startbootstrap.com/solution/contact-forms-->
-            <!-- to get an API token!-->
             <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-              <!-- Name input-->
               <div class="form-floating mb-3">
                 <input
                   class="form-control"

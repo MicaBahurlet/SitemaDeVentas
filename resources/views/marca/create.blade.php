@@ -7,6 +7,22 @@
     #descripcion {
         resize: none;
     }
+
+    .btn-create{
+            width: 130px; 
+            background-color: #007BA7; 
+            font-weight: bold; 
+            border-color: grey; 
+            color: white; 
+            display: inline-block; 
+            text-align: center; 
+            text-decoration: none; 
+            cursor: pointer
+        }
+        .btn-create:hover{
+            background-color: #164B83;
+            color: white;
+        }
 </style>
 @endpush
 
@@ -40,7 +56,7 @@
                 </div>
 
                 <div class="col-12 ">
-                    <button type="submit" class="btn" style="width: 130px; background-color: #007BA7; border-color: grey; color: white; display: inline-block; text-align: center; text-decoration: none; cursor: pointer">Guardar</button>
+                    <button type="submit" class="btn btn-create">Guardar</button>
                 </div>
             </div>
 
