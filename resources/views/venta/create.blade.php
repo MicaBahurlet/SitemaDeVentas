@@ -42,6 +42,13 @@
     </ol>
 </div>
 
+<div class="container px-4 ms-lg-5">
+    <div class="alert alert-info" role="alert">
+       <b>Primero</b> agrega los <b>detalles de la venta</b>, <b>después</b> de completar todos esos pasos <b>carga los datos del comprador</b> y luego guardá tu venta.
+    </div>
+
+</div>
+
 <form action="{{ route('ventas.store')}}" method="POST">
     @csrf
 
