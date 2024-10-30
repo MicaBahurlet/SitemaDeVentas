@@ -26,12 +26,12 @@ class ventaController extends Controller
      */
     public function index()
     {
-       $ventas = Venta::with(['comprobante' , 'cliente.persona', 'user'])
-       ->where ('estado', 1)
-       ->latest()
-       ->get();
+        $ventas = Venta::with(['comprobante', 'cliente.persona', 'user'])
+            ->where('estado', 1)
+            ->latest()
+            ->get();
 
-       return view('venta.index', compact('ventas'));
+        return view('venta.index', compact('ventas'));
     }
 
     /**
@@ -55,13 +55,13 @@ class ventaController extends Controller
             ->where('productos.estado', 1)
             ->where('productos.stock', '>', 0)
             ->get();
-        
-        $clientes = Cliente::whereHas ('persona', function ($query) {
+
+        $clientes = Cliente::whereHas('persona', function ($query) {
             $query->where('estado', 1);
-        }) ->get();
+        })->get();
         $comprobantes = Comprobante::all();
 
-        return view('venta.create' , compact('productos' , 'clientes' , 'comprobantes'));
+        return view('venta.create', compact('productos', 'clientes', 'comprobantes'));
     }
 
     /**
@@ -69,7 +69,7 @@ class ventaController extends Controller
      */
     public function store(StoreVentaRequest $request)
     {
-        try{
+        try {
             DB::beginTransaction();
 
             //llenar mi tabla venta
@@ -84,7 +84,7 @@ class ventaController extends Controller
             //2. realizar el llenado
             $siseArray = count($arrayProducto_id);
             $cont = 0;
-            while($cont < $siseArray){
+            while ($cont < $siseArray) {
                 $venta->productos()->syncWithoutDetaching([
                     $arrayProducto_id[$cont] => [
                         'cantidad' => $arrayCantidad[$cont],
@@ -97,22 +97,21 @@ class ventaController extends Controller
                 $producto = Producto::find($arrayProducto_id[$cont]);
                 $stockActual = $producto->stock;
                 $cantidad = intval($arrayCantidad[$cont]);
-                
+
                 DB::table('productos')
-                ->where('id', $producto->id)
-                ->update([
-                    'stock' => $stockActual - $cantidad
-                ]);
+                    ->where('id', $producto->id)
+                    ->update([
+                        'stock' => $stockActual - $cantidad
+                    ]);
                 $cont++;
             }
             DB::commit();
-
-        }catch(Exception $e){
+        } catch (Exception $e) {
             DB::rollBack();
-
         }
 
         return redirect()->route('ventas.index')->with('success', 'Venta registrada');
+
     }
 
     /**
@@ -145,9 +144,9 @@ class ventaController extends Controller
     public function destroy(string $id)
     {
         Venta::where('id', $id)
-        ->update([
-            'estado' => 0
-        ]);
+            ->update([
+                'estado' => 0
+            ]);
 
         return redirect()->route('ventas.index')->with('success', 'Compra eliminada');
     }

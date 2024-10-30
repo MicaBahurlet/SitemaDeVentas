@@ -97,7 +97,7 @@
             <div class="accordion" id="accordionExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse"
+                        <button class="accordion-button collapsed  fw-semibold" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
                             ¿Qué es un rol?
                         </button>
