@@ -36,11 +36,18 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+                    @if (auth()->check())
+                        <li class="nav-item">
+                            <a class="nav-link me-lg-3" href="{{ route('panel') }}">Panel principal</a>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link me-lg-3" href="{{ route('login') }}">Iniciar sesión</a>
+                        </li>
+                    @endif
+
                     <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="{{ route('login') }}">Iniciar sesión</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="{{ route('primerosPasos') }}">Primeros Pasos</a>
+                        <a class="nav-link me-lg-3" href="{{ route('primerosPasos') }}">¿Qué es StockMaster?</a>
                     </li>
 
                 </ul>
