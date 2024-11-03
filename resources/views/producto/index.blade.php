@@ -165,18 +165,18 @@
 
                                 <td>
                                     <!-- <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                        <form action="{{ route('productos.edit', $producto->id) }}" method="GET">
-                                            <button type="submit" class="btn btn-warning">Editar</button>
-                                        </form>
+                                                <form action="{{ route('productos.edit', $producto->id) }}" method="GET">
+                                                    <button type="submit" class="btn btn-warning">Editar</button>
+                                                </form>
 
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#verModal-{{ $producto->id }}" >Ver</button>
+                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#verModal-{{ $producto->id }}" >Ver</button>
 
-                                        @if ($producto->estado == 1)
+                                                @if ($producto->estado == 1)
     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmModal-{{ $producto->id }}">Eliminar</button>
 @else
     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#confirmModal-{{ $producto->id }}">Restaurar</button>
     @endif
-                                    </div> -->
+                                            </div> -->
 
                                     <div class="btn-group" role="group" aria-label="Basic mixed styles example">
 

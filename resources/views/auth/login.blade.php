@@ -27,10 +27,10 @@
 
         .btn-firstSteps {
             width: 220px;
-            background-color: #007BA7;
+            background-color: white;
             font-weight: bold;
-            border-color: grey;
-            color: white;
+            border-color: #007BA7;
+            color: #007BA7;
             display: inline-block;
             justify-content: center;
             align-items: center;
