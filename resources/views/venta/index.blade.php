@@ -149,7 +149,11 @@
                         </td>
 
                         <td>
-                            {{$item->user->name}}
+                            @if($item->user)
+                                {{ $item->user->name }}
+                            @else
+                                <p class="text-danger">El usuario que creo la venta ya no existe en la base de datos</p>
+                            @endif
                         </td>
 
                         <td>
