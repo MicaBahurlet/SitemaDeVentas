@@ -61,7 +61,10 @@
             color: white;
         }
 
-
+        .eye-icon {
+            color: #007BA7;
+            /* Cambia el color a azul */
+        }
     </style>
 </head>
 
@@ -104,9 +107,19 @@
                                                 placeholder="name@example.com" />
                                             <label for="inputEmail">Correo electrónico</label>
                                         </div>
-                                        <div class="form-floating mb-3">
+                                        {{-- <div class="form-floating mb-3">
                                             <input class="form-control" name="password" id="inputPassword"
                                                 type="password" placeholder="Password" />
+                                            <label for="inputPassword">Contraseña</label>
+                                        </div> --}}
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" name="password" id="inputPassword"
+                                                type="password" placeholder="Contraseña" />
+                                            <button type="button"
+                                                class="btn btn-link position-absolute end-0 top-50 translate-middle"
+                                                id="show-password">
+                                                <i class="fas fa-eye-slash eye-icon" id="eye-icon"></i>
+                                            </button>
                                             <label for="inputPassword">Contraseña</label>
                                         </div>
                                         <!-- <div class="form-check mb-3">
@@ -114,9 +127,10 @@
                                                 <label class="form-check-label" for="inputRememberPassword">Recordar contraseña</label>
                                             </div> -->
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                            <!-- <a class="small" href="password.html">Olvidaste tu contraseña?</a> -->
+
                                             <button type="submit" class="btn px-3 mb-2 mb-lg-0 btn-login"><a>Iniciar
                                                     sesión</a></button>
+                                            <a class="small" href="password.html">¿Olvidaste tu contraseña?</a>
 
                                         </div>
                                     </form>
@@ -137,6 +151,21 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
     <script src="{{ asset('js/scripts.js') }}"></script>
+    <script>
+        document.getElementById('show-password').addEventListener('click', function() {
+            var input = document.getElementById('inputPassword');
+            var eyeIcon = document.getElementById('eye-icon');
+            if (input.type === 'password') {
+                input.type = 'text';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            } else {
+                input.type = 'password';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            }
+        });
+    </script>
 </body>
 
 </html>

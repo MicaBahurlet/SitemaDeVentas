@@ -20,6 +20,11 @@
             background-color: #164B83;
             color: white;
         }
+
+        .eye-icon {
+            color: #007BA7;
+        }
+
     </style>
 @endpush
 
@@ -77,10 +82,52 @@
                     </div>
 
                     <!-- password -->
-                    <div class="row mb-3">
+                    {{-- <div class="row mb-3">
                         <label for="password" class=" col-sm2 form-label"> Contraseña:</label>
                         <div class="col-sm-4">
                             <input type="password" class="form-control" id="password" name="password">
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="from-text">
+                                Escriba una contraseña segura, debe incluir números
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            @error('password')
+                                <span class="text-danger">{{ '*' . $message }}</span>
+                            @enderror
+                        </div>
+                    </div> --}}
+
+                    <!-- password confirm -->
+                    {{-- <div class="row mb-3">
+                        <label for="password_confirm" class=" col-sm2 form-label"> Confirmar contraseña:</label>
+                        <div class="col-sm-4">
+                            <input type="password" class="form-control" id="password_confirm" name="password_confirm">
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="from-text">
+                                Repita su contraseña
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            @error('password_confirm')
+                                <span class="text-danger">{{ '*' . $message }}</span>
+                            @enderror
+                        </div>
+                    </div> --}}
+
+                    <!-- password -->
+                    <div class="row mb-3">
+                        <label for="password" class=" col-sm2 form-label"> Contraseña:</label>
+                        <div class="col-sm-4">
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="password" name="password">
+                                <button type="button" class="btn btn-link position-absolute end-0 top-50 translate-middle"
+                                    id="show-password">
+                                    <i class="fas fa-eye-slash eye-icon" id="eye-icon-password"></i>
+                                </button>
+                            </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="from-text">
@@ -98,7 +145,13 @@
                     <div class="row mb-3">
                         <label for="password_confirm" class=" col-sm2 form-label"> Confirmar contraseña:</label>
                         <div class="col-sm-4">
-                            <input type="password" class="form-control" id="password_confirm" name="password_confirm">
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="password_confirm" name="password_confirm">
+                                <button type="button" class="btn btn-link position-absolute end-0 top-50 translate-middle"
+                                    id="show-password-confirm">
+                                    <i class="fas fa-eye-slash eye-icon" id="eye-icon-password-confirm"></i>
+                                </button>
+                            </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="from-text">
@@ -156,4 +209,33 @@
 @endsection
 
 @push('js')
+    <script>
+        document.getElementById('show-password').addEventListener('click', function() {
+            var input = document.getElementById('password');
+            var eyeIcon = document.getElementById('eye-icon-password');
+            if (input.type === 'password') {
+                input.type = 'text';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            } else {
+                input.type = 'password';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            }
+        });
+
+        document.getElementById('show-password-confirm').addEventListener('click', function() {
+            var input = document.getElementById('password_confirm');
+            var eyeIcon = document.getElementById('eye-icon-password-confirm');
+            if (input.type === 'password') {
+                input.type = 'text';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            } else {
+                input.type = 'password';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            }
+        });
+    </script>
 @endpush
