@@ -23,6 +23,7 @@
 
         .img-nav {
             width: 250px;
+            filter: drop-shadow(2px 5px 5px rgba(0, 0, 0, 0.5));
         }
 
         .btn-firstSteps {
@@ -88,7 +89,7 @@
                                 style="border-radius: 15px; box-shadow: 0px 8px 16px #000000">
 
                                 <div class="card-header">
-                                    <h2 class="text-center font-weight-extrabold my-4 ">Acceder al sistema</h2>
+                                    <h2 class="text-center font-weight-extrabold my-4 ">Iniciar sesión</h2>
                                 </div>
                                 <div class="card-body">
                                     @if ($errors->any())
